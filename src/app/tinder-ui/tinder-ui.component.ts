@@ -1,5 +1,6 @@
 // tslint:disable-next-line: max-line-length
 import { Component, Input, ViewChildren, QueryList, EventEmitter, Output, ElementRef, Renderer2, AfterViewInit, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tinder-ui',
@@ -27,8 +28,9 @@ export class TinderUiComponent implements OnInit {
   heartVisible: boolean;
   crossVisible: boolean;
   originalData: any;
+  // url = https://picsum.photos/300;
 
-  constructor(private renderer: Renderer2) { // we imported Renderer to be able to alter style's of elements safely
+  constructor(private renderer: Renderer2, private router: Router) { // we imported Renderer to be able to alter style's of elements safely
 
   }
 
@@ -120,6 +122,12 @@ export class TinderUiComponent implements OnInit {
   toggleChoiceIndicator(cross, heart) {
     this.crossVisible = cross;
     this.heartVisible = heart;
+    if (this.heartVisible) {
+      setTimeout(() => {
+        this.navigate(this.cards[0].id);
+      }, 2000);
+
+    }
   }
 
   handleShift() {
@@ -142,6 +150,10 @@ export class TinderUiComponent implements OnInit {
       this.tinderCardsArray = this.tinderCards.toArray();
     });
     console.log(this.cards);
+  }
+
+  navigate(id) {
+    this.router.navigate(['/survey/' + id]);
   }
 
 
