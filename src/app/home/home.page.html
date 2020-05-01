@@ -11,19 +11,17 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-  <ion-list>
-    <ion-card *ngFor="let survey of surveys">
-      <img src="https://picsum.photos/300" />
-      <ion-card-header>
-        <ion-card-subtitle>{{survey.name}}</ion-card-subtitle>
-        <!-- <ion-card-title>Madison, WI</ion-card-title> -->
-      </ion-card-header>
-      <ion-card-content>
-        <p>fill in this survey to earn KES 15</p>
-        <ion-button expand="block" fill="outline" (click)="navigate(survey.id)"
-          >Fill in</ion-button
-        >
-      </ion-card-content>
-    </ion-card>
-  </ion-list>
+
+
+ <app-tinder-ui [cards]="cards" (choiceMade)="logChoice($event)"></app-tinder-ui>
+
+
+
+  <ion-footer>
+
+    <ion-toolbar>
+      <ion-button expand="full" (click)="loadTinderCards()">Load Tinder Cards!</ion-button>
+    </ion-toolbar>
+
+  </ion-footer>
 </ion-content>
