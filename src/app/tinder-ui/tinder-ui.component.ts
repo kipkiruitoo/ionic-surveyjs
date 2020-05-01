@@ -135,11 +135,10 @@ export class TinderUiComponent implements OnInit {
     this.toggleChoiceIndicator(false, false);
     if (this.shiftRequired) {
       this.shiftRequired = false;
+      const first = this.cards[0];
       this.cards.shift();
+      this.cards.push(first);
       console.log(this.cards.length);
-      if (this.cards.length < 1) {
-        this.cards = this.originalData;
-      }
     }
   }
 

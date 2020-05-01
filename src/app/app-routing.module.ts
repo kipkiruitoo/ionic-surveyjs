@@ -16,11 +16,11 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'tabs',
+    redirectTo: '',
     pathMatch: 'full',
   },
   {
-    path: 'tabs',
+    path: '',
     loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
   },
 ];

@@ -17,18 +17,25 @@ const routes: Routes = [
 
       },
       {
-        path: 'category',
-        loadChildren: () =>
-          import('../tab2/tab2.module').then(
-            (m) => m.Tab2PageModule
-          ),
+        path: 'notifications',
+            loadChildren: () =>
+              import('../tab1/tab1.module').then(
+                (m) => m.Tab1PageModule
+              ),
+      },
+      {
+        path: 'wallet',
+            loadChildren: () =>
+              import('../tab2/tab2.module').then(
+                (m) => m.Tab2PageModule
+              ),
       },
       {
         path: 'profile',
-        loadChildren: () =>
-          import('../tab3/tab3.module').then(
-            (m) => m.Tab3PageModule
-          ),
+            loadChildren: () =>
+              import('../tab3/tab3.module').then(
+                (m) => m.Tab3PageModule
+              ),
       },
       {
         path: '',
