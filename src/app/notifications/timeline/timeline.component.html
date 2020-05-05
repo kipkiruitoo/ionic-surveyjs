@@ -1,3 +1,16 @@
-<p>
-  timeline works!
-</p>
+<div class="page-timeline">
+<section id="cd-timeline" >
+    <div *ngFor="let log of logs; let last = last; let first = first" class="cd-container">
+      <div [class]="last?'cd-timeline-last-block':'cd-timeline-block'">
+        <div [ngClass]="[log.class, 'cd-timeline-icon']">
+          <ion-icon [name]="log.icon"  [ngClass]="[log.class]"></ion-icon>
+        </div>
+        <div  [ngClass]="[log.class, 'cd-timeline-content']">
+          <h5 [ngClass]="[log.class, 'marginBottom0', 'marginTop0']" ion-text>{{log.title}}</h5>
+          <h6 [ngClass]="[log.class, 'marginBottom0', 'marginTop0']" ion-text>{{log.time|date:'dd/MM HH:mm'}}</h6>
+          <p class="timelineText" ion-text [class]="log.class">{{log.description}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  </div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService, Message } from '../services/data.service';
+
 import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-tab1',
@@ -9,62 +11,36 @@ import { Router } from '@angular/router';
 })
 export class Tab1Page implements OnInit {
 
-  cards;
+  items = [
+    {
+      title: 'Courgette daikon',
+      // tslint:disable-next-line: max-line-length
+      content: 'Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.',
+      icon: 'calendar',
+      time: {subtitle: '4/16/2013', title: '21:30'}
+    },
+    {
+      title: 'Courgette daikon',
+      // tslint:disable-next-line: max-line-length
+      content: 'Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.',
+      icon: 'calendar',
+      time: {subtitle: 'January', title: '29'}
+    },
+    {
+      title: 'Courgette daikon',
+      // tslint:disable-next-line: max-line-length
+      content: 'Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.',
+      icon: 'calendar',
+      time: {title: 'Short Text'}
+    }
+  ];
 
-  constructor(private data: DataService, private router: Router) {
-    this.cards = [];
-    this.getSurveys();
+  constructor(public navCtrl: NavController) {
+
   }
 
-  urls = 'https://picsum.photos/300';
-  surveys: any;
-  refresh(ev) {
-    setTimeout(() => {
-      ev.detail.complete();
-    }, 3000);
-  }
 
-  loadTinderCards() {
-    // this.getSurveys();
-    console.log(this.surveys);
-    this.cards = this.surveys;
-  }
 
-  logChoice(value) {
-    console.log(value);
-  }
-
-  getMessages(): Message[] {
-    return this.data.getMessages();
-  }
-
-  getSurveys() {
-    this.data.getSurveys().subscribe(
-      (result: any) => {
-        console.log(result);
-        this.surveys = result.data;
-        this.loadTinderCards();
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
-  showSurvey(id) {
-    this.data.showSurvey(id).subscribe(
-      (result: any) => {
-        console.log(result);
-        this.surveys = result.data;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
-  navigate(id) {
-    this.router.navigate(['/survey/' + id]);
-  }
-  
   ngOnInit() {
 
   }

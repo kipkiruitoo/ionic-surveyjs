@@ -14,6 +14,7 @@ export class TinderUiComponent implements OnInit {
     name: string,
     id: any;
   }>;
+  
   img = 'https://picsum.photos/300';
 
   @Output() choiceMade = new EventEmitter();
