@@ -129,9 +129,9 @@ Paddings and margins
     margin-left: 50px;
     background: white;
     border-radius: 0.45em;
-    border-color: #BDDFB3;
+    // border-color: #BDDFB3;
     border-style: solid;
-    border-width: 2px;
+    border-width: 1.4px;
     margin-bottom: 10px;
   }
   .cd-timeline-content:after {
@@ -152,6 +152,13 @@ Paddings and margins
     margin: 1em 0;
     line-height: 1.6;
   }
+
+  .cd-timeline-content ion-card {
+    margin: 0 0;
+    width: auto;
+    height: auto;
+    padding : 5px;
+  }
   
   .cd-timeline-content::before {
     content: '';
@@ -163,6 +170,10 @@ Paddings and margins
     border: 7px solid transparent;
     border-right: 7px solid white;
     border-right-color: inherit;
+  }
+
+  ion-item {
+    --min-height: 16px;
   }
   
   /*COLORS*/
