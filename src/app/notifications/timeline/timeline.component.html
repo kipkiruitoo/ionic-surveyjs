@@ -1,0 +1,26 @@
+<div class="page-timeline">
+  <section id="cd-timeline">
+    <div *ngFor="let log of logs; let last = last; let first = first" class="cd-container">
+      <div [class]="last?'cd-timeline-last-block':'cd-timeline-block'">
+        <div [ngClass]="[log.class, 'cd-timeline-icon']">
+          <ion-icon [name]="log.icon"></ion-icon>
+        </div>
+        <div [ngClass]="[log.class, 'cd-timeline-content']">
+          <ion-card>
+            <ion-list>
+              <ion-item lines="none" class="item"><b> {{log.title}} </b> </ion-item>
+              <ion-item class="item">
+                <p>{{log.time| date:'fullDate'}}</p>
+              </ion-item>
+
+            </ion-list>
+
+            <ion-card-content>
+              <p class="timelineText" ion-text [class]="log.class">{{log.description}}</p>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

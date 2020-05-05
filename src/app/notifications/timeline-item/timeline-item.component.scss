@@ -1,0 +1,15 @@
+timeline-item {
+    position: relative;
+    display: inline-block;
+    &:last-child {
+        width: 100%;
+    
+        ion-icon {
+            box-shadow: none;
+    
+            &:after {
+                border-width: 0;
+            }
+        }
+    }
+}
