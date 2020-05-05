@@ -1,0 +1,40 @@
+<ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+      </ion-col>
+      <ion-col size="8" class="ion-align-self-center">
+        <h5>Account Balance:</h5>
+        <h5 class="balance">100Kshs</h5>
+
+      </ion-col>
+      <ion-col>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-card>
+
+<div class="page-wallet" *ngFor="let log of logs;">
+  <ion-card>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <h5>
+            <mat-icon>{{log.icon}}</mat-icon>
+          </h5>
+        </ion-col>
+        <ion-col size="8">
+          <b> {{log.title}} </b><br>
+
+          {{log.time| date:'fullDate'}}
+
+        </ion-col>
+        <ion-col col-2>
+          <h5>{{log.amount}}</h5>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-card>
+</div>
