@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from '../user/profile/profile.component';
+import { EditProfileComponent } from '../user/edit-profile/edit-profile.component';
 import { IonicModule } from '@ionic/angular';
 import { MaterialModule } from '../material.module';
 
@@ -15,8 +16,9 @@ import { Tab3Page } from './tab3.page';
     FormsModule,
     IonicModule,
     Tab3PageRoutingModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ],
-  declarations: [Tab3Page, ProfileComponent]
+  declarations: [Tab3Page, ProfileComponent, EditProfileComponent]
 })
 export class Tab3PageModule {}

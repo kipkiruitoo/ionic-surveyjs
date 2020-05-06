@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Edit Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form [formGroup]="editProfile" (ngSubmit)="submitForm()" class="fullwidth">
+        
+            <mat-form-field class="fullwidth"> 
+              <input matInput type="text" placeholder="Enter your Fullname" formControlName="fullname" required>
+
+            </mat-form-field>
+          
+
+          
+            <mat-form-field class="fullwidth">
+              <input matInput type="email" placeholder="Enter your Email" formControlName="email" required>
+
+            </mat-form-field>
+
+          
+
+          
+            <mat-form-field class="fullwidth">
+              <input matInput type="password" placeholder="Enter your Password" formControlName="password" required>
+
+            </mat-form-field>
+
+          
+
+          
+            <mat-form-field class="fullwidth">
+              <input matInput type="number" placeholder="Enter your Phone Number" formControlName="number" required>
+
+            </mat-form-field>
+
+          
+
+        
+
+        <div class="d-flex justify-content-center">
+          <button mat-flat-button color="primary" type="submit" [disabled]="!editProfile.valid">
+            <mat-icon>edit</mat-icon>
+            Submit
+          </button>
+
+        </div>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
