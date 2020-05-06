@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   // {
   //   path: 'home',
   //   loadChildren: () =>
-  //     import('./home/home.module').then((m) => m.HomePageModule),
+  //     import('./home/home.module').then((m) => m.HomePageModule , canActivate: [AuthGuard] ),
   // },
   {
     path: 'survey/:id',
@@ -48,3 +49,5 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
+
+
