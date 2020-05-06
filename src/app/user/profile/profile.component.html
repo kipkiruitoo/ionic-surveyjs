@@ -1,0 +1,54 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image">
+      <img [src]="img" class="logo-img" alt="Avatar">
+    </div>
+    <mat-card-title>John Doe</mat-card-title>
+    <mat-card-subtitle>john.doe@example.com</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-divider></mat-divider>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+
+          <mat-icon>contact_phone</mat-icon>
+
+        </ion-col>
+        <ion-col>
+          +254754789098
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <mat-icon>stars</mat-icon>
+        </ion-col>
+        <ion-col>
+          Level 1 Points 2450
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <mat-icon>attach_money</mat-icon>
+        </ion-col>
+        <ion-col>
+          500Kshs
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <mat-divider></mat-divider>
+
+  </mat-card-content>
+  <mat-card-actions>
+    <div >
+      <button mat-flat-button color="primary">
+        <mat-icon>edit</mat-icon>
+        Edit profile
+      </button>
+      <button mat-flat-button color="primary">
+        <mat-icon>exit_to_app</mat-icon>
+        Logout
+      </button>
+    </div>
+  </mat-card-actions>
+</mat-card>
