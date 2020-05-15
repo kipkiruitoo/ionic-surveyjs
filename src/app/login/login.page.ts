@@ -91,14 +91,15 @@ export class LoginPage implements OnInit {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password,
     };
-    // this.authService.login(data).subscribe(res => {
-    //   this.alert.presentToast('Welcome');
-    //   this.router.navigate(['/home']);
-    // }, error => {
-    //   console.error(error);
-    //   this.alert.presentToast('Sign In failed!');
-    //   throw error;
-    // });
+    this.authService.login(data).subscribe(res => {
+      console.log(res);
+      this.alert.presentToast('Welcome');
+      this.navCtrl.navigateRoot(`app/tabs/home`);
+    }, error => {
+      console.error(error);
+      this.alert.presentToast('Sign In failed!');
+      throw error;
+    });
   }
 
 }

@@ -20,7 +20,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./view-message/view-message.module').then(
         (m) => m.ViewMessagePageModule
-      ),
+      ), canActivate: [AuthGuard]
   },
   {
     path: '',
@@ -28,8 +28,8 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'home',
-    loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
+    path: 'app',
+    loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule), canActivate: [AuthGuard]
   },
   {
     path: 'login',
