@@ -1,6 +1,13 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
+import { LoginPageModule } from './login/login.module';
+import { RegistrationPageModule } from './registration/registration.module';
+import { ViewMessagePageModule } from './view-message/view-message.module';
+import { LandingPagePageModule } from './landing-page/landing-page.module';
+import { HomePageModule } from './home/home.module';
+import { ForgotPasswordPageModule } from './forgot-password/forgot-password.module';
+import { TabsPageModule } from './tabs/tabs.module';
 
 const routes: Routes = [
   // {

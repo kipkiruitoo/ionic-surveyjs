@@ -1,7 +1,8 @@
 {
   "name": "Surveys",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }

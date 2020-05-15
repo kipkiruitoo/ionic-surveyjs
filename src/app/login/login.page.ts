@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 import { NavController } from '@ionic/angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AlertService } from './../services/alert.service';
+import { AuthService } from './../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -60,9 +64,41 @@ export class LoginPage implements OnInit {
   loginState: any = 'in';
   formState: any = 'in';
 
-  constructor(public navCtrl: NavController) { }
+  public loginForm: FormGroup;
+
+  public submitAttempt = false;
+
+  constructor(
+    public navCtrl: NavController,
+    public formBuilder: FormBuilder,
+    private authService: AuthService,
+    private router: Router,
+    private alert: AlertService
+    ) {
+      this.loginForm = formBuilder.group({
+        email: ['', Validators.required],
+        password: ['', Validators.required]
+      });
+    }
 
   ngOnInit() {
+  }
+
+  login() {
+    this.submitAttempt = true;
+    console.log(this.loginForm.value);
+    const data = {
+      email: this.loginForm.value.email,
+      password: this.loginForm.value.password,
+    };
+    // this.authService.login(data).subscribe(res => {
+    //   this.alert.presentToast('Welcome');
+    //   this.router.navigate(['/home']);
+    // }, error => {
+    //   console.error(error);
+    //   this.alert.presentToast('Sign In failed!');
+    //   throw error;
+    // });
   }
 
 }
