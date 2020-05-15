@@ -8,7 +8,20 @@
 </ion-header>
 
 <ion-content>
-  <form class="form">
+
+ <div padding [@flyInBottomFast]="cloudState" id="cloud-layer">
+
+    <ion-row>
+      <ion-col>
+        <img [@flyInBottomSlow]="logoState" src="assets/img/Design.png" />
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-list inset [@bounceInBottom]="formState">
+
+          <form class="form">
     <ion-item lines="inset">
       <ion-label position="floating">Email</ion-label>
       <ion-input type="text" required></ion-input>
@@ -21,9 +34,16 @@
 
     <ion-row>
       <ion-col >
-        <ion-button type="submit" color="danger" expand="block">Sign In</ion-button><br>
+        <ion-button type="submit" color="" class="login-button" expand="block">Sign In</ion-button><br>
         <a [routerLink]="['/forgot-password']" class="small-text center-any-object">Forgot Password?</a>
       </ion-col>
     </ion-row>
   </form>
+
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+  </div>
+  
 </ion-content>

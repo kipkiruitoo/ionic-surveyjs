@@ -12,7 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NativeStorage } from '@ionic-native/native-storage';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,7 +23,7 @@ import { NativeStorage } from '@ionic-native/native-storage';
     IonicModule.forRoot(),
     AppRoutingModule,
     BrowserAnimationsModule,
-    NativeStorage
+    // NativeStorage
   ],
   providers: [
     StatusBar,
