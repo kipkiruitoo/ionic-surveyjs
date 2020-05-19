@@ -8,31 +8,65 @@
 </ion-header>
 
 <ion-content>
-  <form>
-    <ion-item lines="full">
-      <ion-label position="floating">First name</ion-label>
-      <ion-input type="text" required></ion-input>
-    </ion-item>
 
-    <ion-item lines="full">
-      <ion-label position="floating">Last name</ion-label>
-      <ion-input type="text" required></ion-input>
-    </ion-item>
-
-    <ion-item lines="full">
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="text" required></ion-input>
-    </ion-item>
-
-    <ion-item lines="full">
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" required></ion-input>
-    </ion-item>
+  <div padding [@flyInBottomFast]="cloudState" id="cloud-layer">
 
     <ion-row>
       <ion-col>
-        <ion-button type="submit" color="danger" expand="block">Sign Up</ion-button>
+        <img [@flyInBottomSlow]="logoState" src="assets/img/Design.png" />
       </ion-col>
     </ion-row>
-  </form>
+
+    <ion-row>
+      <ion-col>
+        <ion-list inset [@bounceInBottom]="formState">
+
+          <form [formGroup]="registerForm">
+            <ion-item lines="inset">
+              <ion-label position="floating">Username</ion-label>
+              <ion-input type="text" formControlName="name" required></ion-input>
+            </ion-item>
+            <ion-item *ngIf="!registerForm.controls.name.valid  && (registerForm.controls.name.dirty)">
+                    <p>Please enter a valid name.</p>
+                </ion-item>
+
+            <ion-item lines="inset">
+              <ion-label position="floating">Email</ion-label>
+              <ion-input type="email" formControlName="email" required></ion-input>
+            </ion-item>
+            <ion-item *ngIf="!registerForm.controls.email.valid  && (registerForm.controls.email.dirty)">
+                    <p>Please enter a valid email.</p>
+                </ion-item>
+
+            <ion-item lines="inset">
+              <ion-label position="floating">Password</ion-label>
+              <ion-input type="password" formControlName="password" required></ion-input>
+            </ion-item>
+            <ion-item *ngIf="!registerForm.controls.password.valid  && (registerForm.controls.password.dirty)">
+                    <p>Please enter a valid password.</p>
+                </ion-item>
+
+            <ion-item lines="inset">
+              <ion-label position="floating">Confirm Password</ion-label>
+              <ion-input type="password" formControlName="confirm_password" required></ion-input>
+            </ion-item>
+            <ion-item *ngIf="!registerForm.controls.confirm_password.valid  && (registerForm.controls.confirm_password.dirty)">
+                    <p>Passwords do not match.</p>
+                </ion-item>
+
+            
+          </form>
+          <ion-row>
+              <ion-col>
+                <ion-button type="submit" color="" class="login-button" (click)="register()"  expand="block">Sign Up</ion-button><br>
+                <a [routerLink]="['/login']" class="small-text center-any-object">Have an Account?</a>
+              </ion-col>
+            </ion-row>
+
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+  </div>
+
 </ion-content>

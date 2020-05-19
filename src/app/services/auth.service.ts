@@ -1,9 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
-import { NativeStorage } from '@ionic-native/native-storage';
+// import { NativeStorage } from '@ionic-native/native-storage';
 import { EnvService } from './env.service';
-
+import { get, set, remove } from '../services/storage';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,16 +14,17 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private storage: NativeStorage,
+    // private storage: NativeStorage,
     private env: EnvService,
   ) { }
 
-  login(email: string, password: string) {
+  login(data) {
     return this.http.post(this.env.API_URL + 'auth/login',
-      {email, password}
+      data
     ).pipe(
       tap(token => {
-        this.storage.setItem('token', token)
+        // this.storage.setItem('token', token)
+        set('token', token)
         .then(
           () => {
             console.log('Token Stored');
@@ -37,20 +38,21 @@ export class AuthService {
     );
   }
 
-  register(fName: string, lName: string, email: string, password: string) {
+  register(data) {
     return this.http.post(this.env.API_URL + 'auth/register',
-      {fName, lName, email, password}
+      data
     );
   }
 
   logout() {
-    const headers = new HttpHeaders({
-      Authorization: this.token.token_type + ' ' + this.token.access_token
-    });
-    return this.http.get(this.env.API_URL + 'auth/logout', { headers })
+    // const headers = new HttpHeaders({
+    //   Authorization: this.token.token_type + ' ' + this.token.access_token
+    // });
+    return this.http.get(this.env.API_URL + 'auth/logout')
     .pipe(
       tap(data => {
-        this.storage.remove('token');
+        // this.storage.remove('token');
+        remove('token');
         this.isLoggedIn = false;
         delete this.token;
         return data;
@@ -60,7 +62,7 @@ export class AuthService {
 
   user() {
     const headers = new HttpHeaders({
-      Authorization: this.token['token_type'] +' '+ this.token['access_token']
+      Authorization: this.token['token_type'] + ' ' + this.token['access_token']
     });
     return this.http.get(this.env.API_URL + 'auth/user', { headers })
     .pipe(
@@ -71,7 +73,7 @@ export class AuthService {
   }
 
   getToken() {
-    return this.storage.getItem('token').then(
+    return get('token').then(
       data => {
         this.token = data;
         if (this.token != null) {

@@ -8,22 +8,49 @@
 </ion-header>
 
 <ion-content>
-  <form class="form">
-    <ion-item lines="inset">
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="text" required></ion-input>
-    </ion-item>
 
-    <ion-item lines="inset">
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" required></ion-input>
-    </ion-item>
+  <div padding [@flyInBottomFast]="cloudState" id="cloud-layer">
 
     <ion-row>
-      <ion-col >
-        <ion-button type="submit" color="danger" expand="block">Sign In</ion-button><br>
-        <a [routerLink]="['/forgot-password']" class="small-text center-any-object">Forgot Password?</a>
+      <ion-col>
+        <img [@flyInBottomSlow]="logoState" src="assets/img/Design.png" />
       </ion-col>
     </ion-row>
-  </form>
+
+    <ion-row>
+      <ion-col>
+        <ion-list inset [@bounceInBottom]="formState">
+
+          <form [formGroup]="loginForm">
+            <ion-item lines="inset">
+              <ion-label position="floating">Email</ion-label>
+              <ion-input type="email" formControlName="email" required></ion-input>
+            </ion-item>
+            <ion-item *ngIf="!loginForm.controls.email.valid  && (loginForm.controls.email.dirty || submitAttempt)">
+                    <p>Please enter a valid email.</p>
+                </ion-item>
+
+            <ion-item lines="inset">
+              <ion-label position="floating">Password</ion-label>
+              <ion-input type="password" formControlName="password" required></ion-input>
+            </ion-item>
+            <ion-item *ngIf="!loginForm.controls.password.valid  && (loginForm.controls.password.dirty || submitAttempt)">
+                    <p>Please enter a valid password.</p>
+                </ion-item>
+
+            
+          </form>
+          <ion-row>
+              <ion-col>
+                <ion-button type="submit" color="" class="login-button" (click)="login()"  expand="block">Sign In</ion-button><br>
+                <a [routerLink]="['/forgot-password']" class="small-text center-any-object">Forgot Password?</a>
+              </ion-col>
+            </ion-row>
+
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+  </div>
+
 </ion-content>
