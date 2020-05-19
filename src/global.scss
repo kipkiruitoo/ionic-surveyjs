@@ -27,3 +27,12 @@
 
 
 @import '~@ffdc/uxg-angular-theme/all-theme';
+
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+// custom loader scss
+.custom-loader-class{
+    --background:#FBB83F;
+    --spinner-color:#fff;
+}

@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertService } from './../services/alert.service';
 import { AuthService } from './../services/auth.service';
 import { Router } from '@angular/router';
+import { LoaderService } from '../services/loader.service';
 
 @Component({
   selector: 'app-login',
@@ -73,7 +74,8 @@ export class LoginPage implements OnInit {
     public formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private alert: AlertService
+    private alert: AlertService,
+    private ionLoader: LoaderService
     ) {
       this.loginForm = formBuilder.group({
         email: ['', Validators.required],
@@ -86,6 +88,7 @@ export class LoginPage implements OnInit {
 
   login() {
     this.submitAttempt = true;
+    this.showLoader();
     console.log(this.loginForm.value);
     const data = {
       email: this.loginForm.value.email,
@@ -93,13 +96,27 @@ export class LoginPage implements OnInit {
     };
     this.authService.login(data).subscribe(res => {
       console.log(res);
+      this.hideLoader();
       this.alert.presentToast('Welcome');
       this.navCtrl.navigateRoot(`app/tabs/home`);
     }, error => {
+      this.hideLoader();
       console.error(error);
       this.alert.presentToast('Sign In failed!');
       throw error;
     });
+  }
+
+  showLoader() {
+    this.ionLoader.showLoader();
+
+    // setTimeout(() => {
+    //   this.hideLoader();
+    // }, 2000);
+  }
+
+  hideLoader() {
+    this.ionLoader.hideLoader();
   }
 
 }
