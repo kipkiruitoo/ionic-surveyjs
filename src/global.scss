@@ -27,3 +27,10 @@
 
 
 @import '~@ffdc/uxg-angular-theme/all-theme';
+
+
+// custom loader scss
+.custom-loader-class{
+    --background:#FBB83F;
+    --spinner-color:#fff;
+}
