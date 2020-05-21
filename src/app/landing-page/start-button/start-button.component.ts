@@ -13,7 +13,7 @@ export class StartButtonComponent implements OnInit {
   ngOnInit() {}
 
   navigateToLogin() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/registration']);
     }
 
 }

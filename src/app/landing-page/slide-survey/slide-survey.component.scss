@@ -1,0 +1,34 @@
+h4 {
+    padding-top: 25px;
+    font-weight: bolder;
+
+}
+.circular {
+    left: 65px;
+    position: relative;
+    border: 5px solid #FAB83E;
+    border-radius: 50%;
+    width: 127px;
+    height: 127px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    a {
+        position: absolute;
+        font-weight: bolder;
+        top: -55px;
+        left: 135px;
+        color: #FAB83E;
+    }
+
+    .do-survey {
+        width: 80%;
+    height: 90%;
+    }
+
+    .get-paid {
+        width: 80%;
+    height: 90%;
+    }
+}

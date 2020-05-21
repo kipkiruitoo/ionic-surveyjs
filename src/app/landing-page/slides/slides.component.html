@@ -1,12 +1,21 @@
-<ion-slides pager="true" [options]="slideOpts">
-<ion-slide>
-<img src="assets/img/Design.png" />
-<h4>Welcome to Maoni</h4>
-</ion-slide>
-<ion-slide>
-<h2>Slide 2 Title</h2>
-</ion-slide>
-<ion-slide>
-<h2>Slide 3 Title</h2>
-</ion-slide>
+<ion-slides pager="true" (ionSlideDidChange)="slideChanged()" [options]="slideOpts" #slides>
+    <ion-slide>
+        <div class="welcome">
+            <p>Maoni</p>
+            <a [routerLink]="['/login']" class=""><b>LOGIN</b></a>
+            <img class="welcome-img" src="assets/img/Design.png" />
+        </div>
+        <h4>Welcome to Maoni</h4>
+    </ion-slide>
+    <ion-slide>
+        <div *ngIf="currentIndex === 1">
+            <app-slide-survey></app-slide-survey>
+        </div>
+    </ion-slide>
+
+    <ion-slide>
+        <div *ngIf="currentIndex === 2">
+            <app-slide-pay></app-slide-pay>
+        </div>
+    </ion-slide>
 </ion-slides>
