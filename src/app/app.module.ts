@@ -1,3 +1,8 @@
+import { LoaderService } from './services/loader.service';
+import { EnvService } from './services/env.service';
+import { DataService } from './services/data.service';
+import { AlertService } from './services/alert.service';
+import { AuthService } from './services/auth.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -33,13 +38,18 @@ import { AuthGuard } from './guards/auth.guard';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    AuthGuard,
+    // AuthGuard,
     // NoAuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
     },
+    AlertService,
+    AuthService,
+    DataService,
+    EnvService,
+    LoaderService
   ],
   bootstrap: [AppComponent],
 })
