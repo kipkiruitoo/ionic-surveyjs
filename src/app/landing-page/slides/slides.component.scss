@@ -1,19 +1,67 @@
-
 ion-slide {
     font-family: 'Poppins', sans-serif;
-    padding: 100px 20px 160px 20px;
+    padding: 95px 20px 70px 20px;
     display: block;
     margin-bottom: 40px;
-    
-    
+
+    .welcome {
+        border: 4px solid #FAB83E;
+        border-radius: 5px;
+        position: relative;
+
+        a {
+            position: absolute;
+            font-weight: bolder;
+            top: -55px;
+            left: 195px;
+            color: #FAB83E;
+        }
+
+        p {
+            position: absolute;
+            top: -16px;
+            left: 10px;
+            font-weight: bold;
+            background-color: #fff;
+            padding-right: 5px;
+            padding-left: 5px;
+            color: #FAB83E;
+        }
+    }
 
     img {
-        width: 120px;
+
+        .welcome-img {
+            width: 180px;
+        }
+    }
+
+    .circular {
+        left: 65px;
+        position: relative;
+        border: 4px solid black;
+        border-radius: 50%;
+        width: 127px;
+        height: 127px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+        .do-survey {
+            width: 80%;
+            height: 90%;
+        }
+
+        .get-paid {
+            width: 80%;
+            height: 90%;
+        }
     }
 
     h4 {
         padding-top: 25px;
         font-weight: bolder;
-        
+
     }
 }
