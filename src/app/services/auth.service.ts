@@ -38,6 +38,10 @@ export class AuthService {
     );
   }
 
+  $isLoggedIn() {
+    return !this.isLoggedIn;
+  }
+
   register(data) {
     return this.http.post(this.env.API_URL + 'auth/register',
       data
