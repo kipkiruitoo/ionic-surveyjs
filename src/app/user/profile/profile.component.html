@@ -40,15 +40,27 @@
 
   </mat-card-content>
   <mat-card-actions>
-    <div >
-      <button mat-flat-button color="primary" (click)="editProfile()">
-        <mat-icon>edit</mat-icon>
-        Edit profile
-      </button>
-      <button mat-flat-button color="primary" (click)="logout()">
-        <mat-icon>exit_to_app</mat-icon>
-        Logout
-      </button>
+    <div>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <div>
+              <ion-button expand="block" color="primary" (click)="editProfile()">
+                <mat-icon>edit</mat-icon>
+                Edit profile
+              </ion-button>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div>
+              <ion-button expand="block" color="primary" (click)="logout()">
+                <mat-icon>exit_to_app</mat-icon>
+                Logout
+              </ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </div>
   </mat-card-actions>
 </mat-card>

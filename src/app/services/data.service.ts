@@ -80,18 +80,22 @@ export class DataService {
   }
 
   public getSurveys() {
-    let url = 'https://maoni.club/api/surveys';
+    const url = 'https://maoni.club/api/surveys';
     return this.http.get(url);
   }
 
   public showSurvey(id) {
-    let url = 'https://maoni.club/api/surveys/' + id;
-    
+    const url = 'https://maoni.club/api/surveys/' + id;
     return this.http.get(url);
 
   }
 
   public getMessageById(id: number): Message {
     return this.messages[id];
+  }
+
+  public submitSurvey(id, data) {
+    const url = 'https://maoni.club/api/survey/' + id + '/result';
+    return this.http.post(url, data);
   }
 }

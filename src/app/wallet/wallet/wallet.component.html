@@ -1,12 +1,12 @@
-<ion-card>
+<ion-card class="page">
   <ion-grid>
     <ion-row>
       <ion-col>
       </ion-col>
       <ion-col size="8" class="ion-align-self-center">
-        <h5>Account Balance:</h5>
-        <h5 class="balance">100Kshs</h5>
-
+        <h5>Account Balance: 10000Kshs</h5>
+        <h5 class="balance"></h5>
+        <ion-button type="submit" color="" class="login-button" (click)="withdraw()"  expand="block">Withdraw</ion-button><br>
       </ion-col>
       <ion-col>
       </ion-col>
@@ -15,6 +15,7 @@
 
 </ion-card>
 
+<div class="wallet" >
 <div class="page-wallet" *ngFor="let log of logs;">
   <ion-card>
     <ion-grid>
@@ -37,4 +38,5 @@
     </ion-grid>
 
   </ion-card>
+</div>
 </div>
