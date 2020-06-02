@@ -13,6 +13,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AndroidPermissions} from '@ionic-native/android-permissions/ngx';
+
 // import { SurveyComponent } from "./survey/survey.component";
 
 import { HttpClientModule } from '@angular/common/http';
@@ -36,6 +38,7 @@ import { AuthGuard } from './guards/auth.guard';
   ],
   providers: [
     StatusBar,
+    AndroidPermissions,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     // AuthGuard,
@@ -49,7 +52,8 @@ import { AuthGuard } from './guards/auth.guard';
     AuthService,
     DataService,
     EnvService,
-    LoaderService
+    LoaderService,
+    
   ],
   bootstrap: [AppComponent],
 })

@@ -1,8 +1,12 @@
+ion-slides {
+    // height: 100vh;
+}
 ion-slide {
     font-family: 'Poppins', sans-serif;
     padding: 95px 20px 70px 20px;
     display: block;
-    margin-bottom: 40px;
+    // margin-bottom: 40px;
+    
 
     .welcome {
         border: 4px solid #FAB83E;
@@ -12,8 +16,8 @@ ion-slide {
         a {
             position: absolute;
             font-weight: bolder;
-            top: -55px;
-            left: 195px;
+            top: -35%;
+            left: 80%;
             color: #FAB83E;
         }
 
