@@ -5,6 +5,14 @@
     </div>
     <mat-card-title>John Doe</mat-card-title>
     <mat-card-subtitle>john.doe@example.com</mat-card-subtitle>
+    <mat-card-subtitle (click)="editProfile()">
+      <mat-icon>edit</mat-icon>
+      Edit profile
+    </mat-card-subtitle>
+    <mat-card-subtitle (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon>
+      Logout
+    </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <mat-divider></mat-divider>
@@ -35,6 +43,7 @@
           500Kshs
         </ion-col>
       </ion-row>
+      
     </ion-grid>
     <mat-divider></mat-divider>
 
@@ -42,24 +51,7 @@
   <mat-card-actions>
     <div>
       <ion-grid>
-        <ion-row>
-          <ion-col>
-            <div>
-              <ion-button expand="block" color="primary" (click)="editProfile()">
-                <mat-icon>edit</mat-icon>
-                Edit profile
-              </ion-button>
-            </div>
-          </ion-col>
-          <ion-col>
-            <div>
-              <ion-button expand="block" color="primary" (click)="logout()">
-                <mat-icon>exit_to_app</mat-icon>
-                Logout
-              </ion-button>
-            </div>
-          </ion-col>
-        </ion-row>
+
       </ion-grid>
     </div>
   </mat-card-actions>
