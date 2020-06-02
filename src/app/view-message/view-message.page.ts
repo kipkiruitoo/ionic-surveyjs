@@ -1,11 +1,14 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { DataService, Message } from "../services/data.service";
+import { AuthService } from './../services/auth.service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { DataService, Message } from '../services/data.service';
+import { throwError } from 'rxjs';
+
 // import { SurveyComponent } from "../survey/survey.component"
 @Component({
-  selector: "app-view-message",
-  templateUrl: "./view-message.page.html",
-  styleUrls: ["./view-message.page.scss"],
+  selector: 'app-view-message',
+  templateUrl: './view-message.page.html',
+  styleUrls: ['./view-message.page.scss'],
 })
 export class ViewMessagePage implements OnInit {
   public message: Message;
@@ -13,9 +16,10 @@ export class ViewMessagePage implements OnInit {
   json: any;
   constructor(
     private data: DataService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private authService: AuthService
   ) {
-    const id = this.activatedRoute.snapshot.paramMap.get("id");
+    const id = this.activatedRoute.snapshot.paramMap.get('id');
     this.survey = this.showSurvey(id);
   }
 
@@ -27,7 +31,7 @@ export class ViewMessagePage implements OnInit {
   getBackButtonText() {
     const win = window as any;
     const mode = win && win.Ionic && win.Ionic.mode;
-    return mode === "ios" ? "Inbox" : "";
+    return mode === 'ios' ? 'Maoni' : '';
   }
 
   showSurvey(id) {
@@ -42,5 +46,28 @@ export class ViewMessagePage implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  submitSurvey($event) {
+    this.authService.getUser().subscribe(user => {
+      console.log($event);
+      console.log(this.survey.id, );
+      console.log(user );
+      const data = {
+        user_id: user['id'],
+        json: $event
+      };
+      console.log(data);
+      this.data.submitSurvey(this.survey.id, data).subscribe( resp => {
+        console.log(resp);
+      }, error => {
+        console.error(error);
+        throwError(error);
+      });
+    }, error => {
+      console.error(error);
+      throwError(error);
+    });
+    
   }
 }

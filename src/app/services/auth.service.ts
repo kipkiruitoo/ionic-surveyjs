@@ -93,4 +93,13 @@ export class AuthService {
     );
   }
 
+  getUser() {
+    return this.http.get(this.env.API_URL + 'auth/getuser')
+    .pipe(
+      tap(user => {
+        return user;
+      })
+    );
+  }
+
 }

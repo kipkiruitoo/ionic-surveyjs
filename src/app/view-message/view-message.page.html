@@ -3,12 +3,12 @@
     <ion-buttons>
       <ion-back-button
         [text]="getBackButtonText()"
-        defaultHref="/"
+        defaultHref="/app"
       ></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" *ngIf="json">
-  <survey [json]="json"></survey>
+  <survey [json]="json" (submitSurvey)='submitSurvey($event)'></survey>
 </ion-content>

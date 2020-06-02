@@ -5,6 +5,10 @@ ion-card {
     font-family: 'Poppins', sans-serif;
 }
 
+ion-content {
+    // --offset-top:  !important;
+}
+
 ion-icon {
     float: right;
     width: 40px;
