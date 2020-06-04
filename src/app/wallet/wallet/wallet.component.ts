@@ -22,4 +22,6 @@ export class WalletComponent implements OnInit {
 
   ngOnInit() {}
 
+  withdraw() {}
+
 }

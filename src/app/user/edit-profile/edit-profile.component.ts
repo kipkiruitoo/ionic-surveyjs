@@ -9,7 +9,7 @@ import { NavController } from '@ionic/angular';
 })
 export class EditProfileComponent implements OnInit {
 
-  private editProfile: FormGroup;
+  public editProfile: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
