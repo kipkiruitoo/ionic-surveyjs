@@ -1,11 +1,11 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header >
+  <ion-toolbar [appScrollVanish]="scrollArea">
     <ion-title>
-      Maoni
+      Notifications
     </ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content >
+<ion-content #scrollArea scrollEvents="true" appScrollbar margin>
   <app-timeline endIcon="call">
     
   </app-timeline>

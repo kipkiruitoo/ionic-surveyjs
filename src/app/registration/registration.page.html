@@ -7,13 +7,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding #scrollArea scrollEvents="true" appScrollbar>
 
   <div [@flyInBottomFast]="cloudState" id="cloud-layer">
 
     <ion-row>
       <ion-col>
-        <img [@flyInBottomSlow]="logoState" src="assets/img/Design.png" />
+        <img [@flyInBottomSlow]="logoState" src="assets/img/Design_icon-removebg-preview.png" />
       </ion-col>
     </ion-row>
 
@@ -23,45 +23,46 @@
 
           <form [formGroup]="registerForm">
             <ion-item lines="inset">
-              <ion-label position="floating">Username</ion-label>
-              <ion-input type="text" formControlName="name" required></ion-input>
+              <ion-icon  slot="start" name="person-circle-outline"></ion-icon>
+              <ion-input type="text" formControlName="name" placeholder="Username" required></ion-input>
             </ion-item>
             <ion-item *ngIf="!registerForm.controls.name.valid  && (registerForm.controls.name.dirty)">
-              <p>Please enter a valid name.</p>
+              <p class="error">Please enter a valid name.</p>
             </ion-item>
 
             <ion-item lines="inset">
-              <ion-label position="floating">Email</ion-label>
-              <ion-input type="email" formControlName="email" required></ion-input>
+            <ion-icon slot="start" name="mail-outline"></ion-icon>
+              <ion-input type="email" formControlName="email" placeholder="Email" required></ion-input>
             </ion-item>
             <ion-item *ngIf="!registerForm.controls.email.valid  && (registerForm.controls.email.dirty)">
-              <p>Please enter a valid email.</p>
+              <p class="error">Please enter a valid email.</p>
             </ion-item>
 
             <ion-item lines="inset">
-              <ion-label position="floating">Password</ion-label>
-              <ion-input type="password" formControlName="password" required></ion-input>
+              <ion-icon slot="start" name="key-outline"></ion-icon>
+              <ion-input type="password" formControlName="password" placeholder="Password" [type]="passwordType" required clearOnEdit="false"></ion-input>
+              <ion-icon slot="end" [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
             </ion-item>
             <ion-item *ngIf="!registerForm.controls.password.valid  && (registerForm.controls.password.dirty)">
-              <p>Please enter a valid password.</p>
+              <p class="error">Please enter a valid password.</p>
             </ion-item>
 
             <ion-item lines="inset">
-              <ion-label position="floating">Confirm Password</ion-label>
-              <ion-input type="password" formControlName="confirm_password" required></ion-input>
+              <ion-icon slot="start" name="key-outline"></ion-icon>
+              <ion-input type="password" formControlName="confirm_password" placeholder="Confirm Password" [type]="passwordType" required clearOnEdit="false"></ion-input>
+              <ion-icon slot="end" [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
             </ion-item>
             <ion-item
               *ngIf="!registerForm.controls.confirm_password.valid  && (registerForm.controls.confirm_password.dirty)">
-              <p>Passwords do not match.</p>
+              <p class="error">Passwords do not match.</p>
             </ion-item>
-            <ion-item lines="inset"></ion-item>
 
           </form>
           <ion-row class="bottomRow">
             <ion-col>
-              <ion-button type="submit" color="" class="login-button" (click)="register()" expand="block">Sign Up
+              <ion-button type="submit" color="warning" class="login-button" (click)="register()" expand="block">Sign Up
               </ion-button><br>
-              <a [routerLink]="['/login']" class="small-text center-any-object">Have an Account?</a>
+              <a [routerLink]="['/login']" class="small-text center-any-object">Have an Account? Sign In</a>
             </ion-col>
           </ion-row>
 

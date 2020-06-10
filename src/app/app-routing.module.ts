@@ -13,7 +13,9 @@ const routes: Routes = [
   // {
   //   path: 'home',
   //   loadChildren: () =>
-  //     import('./home/home.module').then((m) => m.HomePageModule , canActivate: [AuthGuard] ),
+  //     import('./home/home.module').then((m) => m.HomePageModule, canActivate: [AuthGuard]
+// , canActivate: [AuthGuard]
+// , canActivate: [AuthGuard]  ),
   // },
   {
     path: 'survey/:id',
@@ -46,6 +48,10 @@ const routes: Routes = [
   {
     path: 'landing-page',
     loadChildren: () => import('./landing-page/landing-page.module').then( m => m.LandingPagePageModule)
+  },
+  {
+    path: 'tab4',
+    loadChildren: () => import('./tab4/tab4.module').then( m => m.Tab4PageModule)
   },
 ];
 

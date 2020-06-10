@@ -9,11 +9,11 @@
 
 <ion-content>
 
-  <div padding [@flyInBottomFast]="cloudState" id="cloud-layer">
+  <div [@flyInBottomFast]="cloudState" id="cloud-layer">
 
     <ion-row>
       <ion-col>
-        <img [@flyInBottomSlow]="logoState" src="assets/img/Design.png" />
+        <img [@flyInBottomSlow]="logoState" class="logo" src="assets/img/Design_icon-removebg-preview.png" />
       </ion-col>
     </ion-row>
 
@@ -23,31 +23,36 @@
 
           <form [formGroup]="loginForm">
             <ion-item lines="inset">
-              <ion-label position="floating">Email</ion-label>
-              <ion-input type="email" formControlName="email" required></ion-input>
+              <ion-icon slot="start" name="mail-outline"></ion-icon>
+              <ion-input type="email" formControlName="email" placeholder="Email"  required></ion-input>
             </ion-item>
             <ion-item *ngIf="!loginForm.controls.email.valid  && (loginForm.controls.email.dirty || submitAttempt)">
-                    <p>Please enter a valid email.</p>
-                </ion-item>
+              <p class="error">Please enter a valid email.</p>
+            </ion-item>
 
             <ion-item lines="inset">
-              <ion-label position="floating">Password</ion-label>
-              <ion-input type="password" formControlName="password" required></ion-input>
+              <ion-icon slot="start" name="key-outline"></ion-icon>
+              
+              <ion-input formControlName="password" [type]="passwordType" placeholder="Password" required clearOnEdit="false"></ion-input>
+              <ion-icon slot="end" [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
             </ion-item>
-            <ion-item *ngIf="!loginForm.controls.password.valid  && (loginForm.controls.password.dirty || submitAttempt)">
-                    <p>Please enter a valid password.</p>
-                </ion-item>
-            
+            <ion-item
+              *ngIf="!loginForm.controls.password.valid  && (loginForm.controls.password.dirty || submitAttempt)">
+              <p class="error">Please enter a valid password.</p>
+            </ion-item>
 
-            
+
+
           </form>
           <ion-row>
-              <ion-col>
-                <ion-button type="submit" color="" class="login-button" (click)="login()"  expand="block">Sign In</ion-button><br>
-                <a [routerLink]="['/registration']" class="small-text center-any-object">Don't Have an Account? Sign Up</a><br>
-                <a [routerLink]="['/forgot-password']" class="small-text center-any-object">Forgot Password?</a>
-              </ion-col>
-            </ion-row>
+            <ion-col>
+              <ion-button type="submit" color="warning" class="login-button" (click)="login()" expand="block">Sign In
+              </ion-button><br>
+              <a [routerLink]="['/registration']" class="small-text center-any-object">Don't Have an Account? Sign
+                Up</a><br>
+              <a [routerLink]="['/forgot-password']" class="small-text center-any-object">Forgot Password?</a>
+            </ion-col>
+          </ion-row>
 
         </ion-list>
       </ion-col>

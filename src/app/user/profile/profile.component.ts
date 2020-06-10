@@ -1,9 +1,10 @@
+import { SettingsComponent } from './../../notifications/settings/settings.component';
 import { AuthService } from './../../services/auth.service';
 import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AlertService } from '../../services/alert.service';
-
+import { PopoverController } from '@ionic/angular';
 
 @Component({
   selector: 'app-profile',
@@ -23,6 +24,7 @@ export class ProfileComponent implements OnInit {
     private navCtrl: NavController,
     private authService: AuthService,
     private alert: AlertService,
+    public popoverCtrl: PopoverController
   ) { }
 
   ngOnInit() {}
@@ -31,11 +33,16 @@ export class ProfileComponent implements OnInit {
     this.router.navigateByUrl('app/tabs/profile/edit-profile');
   }
 
-  logout() {
-    this.authService.logout().subscribe(resp => {
-      this.alert.presentToast('Goodbye');
-      this.router.navigate(['/login']);
+  
+
+  async settings(ev: any) {
+    const popover = await this.popoverCtrl.create({
+        component: SettingsComponent,
+        event: ev,
+        animated: true,
+        showBackdrop: true
     });
+    return await popover.present();
   }
 
 }

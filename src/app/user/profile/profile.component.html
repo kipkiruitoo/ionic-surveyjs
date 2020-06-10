@@ -1,73 +1,123 @@
-<mat-card class="example-card">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image">
-      <img [src]="img" class="logo-img" alt="Avatar">
-    </div>
-    <mat-card-title>John Doe</mat-card-title>
-    <mat-card-subtitle>john.doe@example.com</mat-card-subtitle>
-    <mat-card-subtitle>
-      <ion-button class="buttons" size="small" color="primary" (click)="editProfile()">
-        <mat-icon>edit</mat-icon>
-        Edit profile
-      </ion-button>
-    </mat-card-subtitle>
-    <mat-card-subtitle>
-      <ion-button class="buttons" size="small" color="primary" (click)="logout()">
-        <mat-icon>exit_to_app</mat-icon>
-        Logout
-      </ion-button>
-    </mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <mat-divider></mat-divider>
-    <ion-grid>
-      <ion-row>
-        <ion-col>
+<ion-row class="header">
+  <ion-col col-3>
+    <img src="http://placehold.it/250x250" />
+  </ion-col>
+  <ion-col col-9 class="button-container">
+    <ion-row>
+      <ion-col col-6>
+        <ion-button class="buttons" color="warning" (click)="editProfile()" class="icons" style="border: none;">
+          <ion-icon name="create"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col col-3>
+        <ion-button class="buttons" color="warning"  (click)="settings($event)" class="icons" style="border: none;">
+          <ion-icon name="cog"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-col>
+</ion-row>
 
-          <mat-icon>contact_phone</mat-icon>
+<ion-row class="header">
+  <ion-col col-12>
+    <ion-row>
+      <ion-col>
+        <div class="ion-text-center">
+          <h4 class="name">John Smith</h4>
+        </div>
 
-        </ion-col>
-        <ion-col>
-          +254754789098
-        </ion-col>
-      </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-card class="page">
       <ion-row>
-        <ion-col>
-          <mat-icon>stars</mat-icon>
-        </ion-col>
-        <ion-col>
-          Level 1 Points 2450
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <mat-icon>attach_money</mat-icon>
-        </ion-col>
-        <ion-col>
-          500Kshs
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <div>
-
+        <ion-col col-1>
+          <div class="ion-text-start email check">
+            <ion-icon name="mail" class="icon"></ion-icon>
           </div>
         </ion-col>
-        <ion-col>
-          <div>
-
+        <ion-col col-9>
+          <div class="ion-text-start email">
+            <p class="twittername">info@johnsmith.com</p>
           </div>
+
+        </ion-col>
+        <ion-col col-2>
         </ion-col>
       </ion-row>
-    </ion-grid>
-    <mat-divider></mat-divider>
+      <ion-row>
+        <ion-col col-3>
+          <div class="ion-text-start email check px-2">
+            <ion-icon name="call" class="icon"></ion-icon>
+          </div>
+        </ion-col>
+        <ion-col col-8>
+          <div class="ion-text-start email ">
+            <p class="twittername">+254702089087</p>
+          </div>
+        </ion-col>
+        <ion-col col-1>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-col>
+</ion-row>
 
-  </mat-card-content>
-  <mat-card-actions>
-    <div>
-      <ion-grid>
+<ion-card class="page">
 
-      </ion-grid>
-    </div>
-  </mat-card-actions>
-</mat-card>
+  <ion-row class="header acc">
+    <ion-col col-4>
+      <div class="ion-text-center">
+        <strong>
+          <h4 class="name">1</h4>
+        </strong>
+        <p class="accolades">Level</p>
+      </div>
+
+
+    </ion-col>
+    <ion-col col-4>
+      <div class="ion-text-center">
+        <strong>
+          <h4 class="name">1</h4>
+        </strong>
+        <p class="accolades">Points</p>
+      </div>
+
+    </ion-col>
+    <ion-col col-4>
+      <div class="ion-text-center">
+        <strong>
+          <h4 class="name">100</h4>
+        </strong>
+        <p class="accolades">Wallet(Kshs)</p>
+      </div>
+
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="header">
+    <ion-col col-1>
+      <div class="ion-text-center check">
+        <ion-icon name="checkmark-circle-outline" class="icon"></ion-icon>
+      </div>
+    </ion-col>
+    <ion-col col-10>
+      <div class="ion-text-start">
+        <strong>
+          <p class="complete">Completed Surveys</p>
+        </strong>
+      </div>
+    </ion-col>
+
+    <ion-col col-1>
+      <div class="ion-text-center">
+        <strong>
+          <h6 class="check">3</h6>
+        </strong>
+      </div>
+    </ion-col>
+
+
+  </ion-row>
+
+</ion-card>

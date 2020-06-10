@@ -23,7 +23,7 @@
     <div class="tinder--cards" (pan)="handlePan($event)" (panend)="handlePanEnd($event)">
 
         <div #tinderCard class="tinder--card" *ngFor="let card of cards; let i = index" (transitionend)="handleShift()"
-            [ngStyle]="{ zIndex: cards.length - i, transform: 'scale(' + (20 - i) / 20 + ') translateY(-' + 20 * i + 'px)' }">
+            [ngStyle]="{ zIndex: cards.length - i, transform: 'scale(' + (20 - i) / 20 + ') translateY(+' + 20 * i + 'px)' }">
 
             <img #tinderCardImage [src]="img" (load)="tinderCardImage.style.opacity = 1">
             <div class="logo">
@@ -33,7 +33,7 @@
                 <span class="logo-img  ">💰</span>
             </div>           
             <div class="myOverlay">
-                <h4>{{ card.name }}</h4>           
+                <h4 class="overlayname">{{ card.name }}</h4>           
             </div>
 
         </div>

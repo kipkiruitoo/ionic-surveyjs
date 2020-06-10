@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -5,7 +6,7 @@ import { ProfileComponent } from '../user/profile/profile.component';
 import { EditProfileComponent } from '../user/edit-profile/edit-profile.component';
 import { IonicModule } from '@ionic/angular';
 import { MaterialModule } from '../material.module';
-
+import { SharedModule } from './../shared/shared.module';
 import { Tab3PageRoutingModule } from './tab3-routing.module';
 
 import { Tab3Page } from './tab3.page';
@@ -17,8 +18,10 @@ import { Tab3Page } from './tab3.page';
     IonicModule,
     Tab3PageRoutingModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
-  declarations: [Tab3Page, ProfileComponent, EditProfileComponent]
+  declarations: [Tab3Page, ProfileComponent, EditProfileComponent],
+  
 })
 export class Tab3PageModule {}

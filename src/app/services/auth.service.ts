@@ -43,7 +43,7 @@ export class AuthService {
   }
 
   register(data) {
-    return this.http.post(this.env.API_URL + 'auth/register',
+    return this.http.post(this.env.API_URL + 'auth/signup',
       data
     );
   }

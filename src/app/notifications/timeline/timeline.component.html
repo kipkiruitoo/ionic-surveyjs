@@ -1,3 +1,38 @@
+<ion-card class="page">
+<ion-grid >
+  <ion-row class="header acc">
+    <ion-col col-2>
+      <div class="ion-text-center">
+        <strong>
+          <h4 class="name">1</h4>
+        </strong>
+        <p class="accolades">Level</p>
+      </div>
+
+
+    </ion-col>
+    <ion-col col-2>
+      <div class="ion-text-center">
+        <strong>
+          <h4 class="name">100</h4>
+        </strong>
+        <p class="accolades">Points</p>
+      </div>
+
+    </ion-col>
+    <ion-col col-8>
+      <div class="ion-text-center">
+        <strong>
+          <h4 class="name">20</h4>
+        </strong>
+        <p class="accolades">Surveys</p>
+      </div>
+
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-card>
+
 <div class="page-timeline">
   <section id="cd-timeline">
     <div *ngFor="let log of logs; let last = last; let first = first" class="cd-container">
@@ -9,14 +44,14 @@
           <ion-card>
             <ion-list>
               <ion-item lines="none" class="item"><b> {{log.title}} </b> </ion-item>
-              <ion-item class="item">
-                <p>{{log.time| date:'fullDate'}}</p>
+              <ion-item class="item ">
+                <p class="timelineText">{{log.time| date:'fullDate'}}</p>
               </ion-item>
 
             </ion-list>
 
             <ion-card-content>
-              <p class="timelineText" ion-text [class]="log.class">{{log.description}}</p>
+              <p class="timelineText">{{log.description}}</p>
             </ion-card-content>
           </ion-card>
         </div>

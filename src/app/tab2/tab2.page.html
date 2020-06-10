@@ -1,9 +1,9 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar [appScrollVanish]="scrollArea">
     <ion-title>Wallet</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding #scrollArea scrollEvents="true" appScrollbar>
   <app-wallet></app-wallet>
 </ion-content>
