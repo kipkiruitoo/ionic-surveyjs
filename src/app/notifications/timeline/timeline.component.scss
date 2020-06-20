@@ -106,11 +106,12 @@ margin-top: 10px;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border-color: #4a87ee;
+    border-color: #FAB83F;
     border-style: solid;
     border-width: 2px;
     padding-top:5px;
     padding-left:4px;
+    color: #222;
     background: white;
   }
   .timelineText {
@@ -142,11 +143,11 @@ margin-top: 10px;
   .cd-timeline-content {
     position: relative;
     margin-left: 50px;
-    background: white;
+    // background: white;
     border-radius: 0.45em;
     // border-color: #BDDFB3;
-    border-style: solid;
-    border-width: 1.4px;
+    // border-style: solid;
+    // border-width: 1.4px;
     margin-bottom: 10px;
   }
   .cd-timeline-content:after {
@@ -182,8 +183,8 @@ margin-top: 10px;
     height: 0;
     width: 0;
     top:0px;
-    border: 17px solid transparent;
-    border-right: 10px solid white;
+    // border: 17px solid transparent;
+    // border-right: 10px solid white;
     border-right-color: inherit;
   }
   
@@ -194,54 +195,54 @@ margin-top: 10px;
   
   /*COLORS*/
   /*POSITIVE*/
-  .positive {
-    border-color: #4a87ee;
-  }
-  .positive ion-icon,h5,h6,p {
-    color: #4a87ee;
-  }
-  /*CALM*/
-  .calm {
-    border-color: #43cee6;
-  }
-  .calm ion-icon,h5,h6,p {
-    color: #43cee6;
-  }
-  /*BALANCED*/
-  .balanced {
-    border-color: #66cc33;
-  }
-  .balanced ion-icon,h5,h6,p {
-    color: #66cc33;
-  }
-  /*ENERGIZED*/
-  .energized {
-    border-color: #f0b840;
-  }
-  .energized ion-icon,h5,h6,p {
-    color: #f0b840;
-  }
-  /*ASSERTIVE*/
-  .assertive {
-    border-color: #ef4e3a;
-  }
-  .assertive ion-icon,h5,h6,p {
-    color: #ef4e3a;
-  }
-  /*ROYAL*/
-  .royal {
-    border-color: #8a6de9;
-  }
-  .royal ion-icon,h5,h6,p {
-    color: #8a6de9;
-  }
-  /*DARK*/
-  .dark {
-    border-color: #444;
-  }
-  .dark ion-icon,h5,h6,p {
-    color: #444;
-  }
+  // .positive {
+  //   border-color: #4a87ee;
+  // }
+  // .positive ion-icon,h5,h6,p {
+  //   color: #4a87ee;
+  // }
+  // /*CALM*/
+  // .calm {
+  //   border-color: #43cee6;
+  // }
+  // .calm ion-icon,h5,h6,p {
+  //   color: #43cee6;
+  // }
+  // /*BALANCED*/
+  // .balanced {
+  //   border-color: #66cc33;
+  // }
+  // .balanced ion-icon,h5,h6,p {
+  //   color: #66cc33;
+  // }
+  // /*ENERGIZED*/
+  // .energized {
+  //   border-color: #f0b840;
+  // }
+  // .energized ion-icon,h5,h6,p {
+  //   color: #f0b840;
+  // }
+  // /*ASSERTIVE*/
+  // .assertive {
+  //   border-color: #ef4e3a;
+  // }
+  // .assertive ion-icon,h5,h6,p {
+  //   color: #ef4e3a;
+  // }
+  // /*ROYAL*/
+  // .royal {
+  //   border-color: #8a6de9;
+  // }
+  // .royal ion-icon,h5,h6,p {
+  //   color: #8a6de9;
+  // }
+  // /*DARK*/
+  // .dark {
+  //   border-color: #444;
+  // }
+  // .dark ion-icon,h5,h6,p {
+  //   color: #444;
+  // }
   
   @media only screen and (min-width: 768px) {
     .cd-timeline-content h2 {

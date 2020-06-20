@@ -9,17 +9,17 @@ export class TimelineComponent implements OnInit {
 
   @Input('endIcon') endIcon = 'ionic';
   logs = [
-    {time: new Date(), title: 'Level Up', description: 'testing 1, testing 1, testing 1, testing 1', class: 'positive', icon: 'arrow-up'},
+    {time: new Date(), title: 'Level Up', description: '10 points', class: 'positive', icon: 'arrow-up'},
   // tslint:disable-next-line: max-line-length
-  {time: new Date(), title: 'Payment', description: 'testing 2 testing 2 testing 2 testing 2 testing 2 testing 2 testing 2 testing 2', class: 'royal', icon: 'card'},
+  {time: new Date(), title: 'Payment', description: '100', class: 'royal', icon: 'card'},
   // tslint:disable-next-line: max-line-length
-  {time: new Date(), title: 'Level Up', description: 'testing 3 testing 2 testing 2 testing 2 testing 2 testing 2 testing 2 testing 2 testing 2', class: 'calm', icon: 'arrow-up'},
+  {time: new Date(), title: 'Level Up', description: '20 points', class: 'calm', icon: 'arrow-up'},
   // tslint:disable-next-line: max-line-length
-  {time: new Date(), title: 'Level Up', description: 'testing 4 testing 2 testing 2 testing 2 testing 2 testing 2 testing 2 testing 2 testing 2', class: 'balanced', icon: 'arrow-up'},
+  {time: new Date(), title: 'Level Up', description: '15 points', class: 'balanced', icon: 'arrow-up'},
   // tslint:disable-next-line: max-line-length
-  {time: new Date(), title: 'Level Up', description: 'testing 5 testing 2 testing 2 testing 2 testing 2 testing 2 testing 2 testing 2 testing 2', class: 'energized', icon: 'arrow-up'},
+  {time: new Date(), title: 'Level Up', description: '30 points', class: 'energized', icon: 'arrow-up'},
   // tslint:disable-next-line: max-line-length
-  {time: new Date(), title: 'Payment', description: 'testing 6 testing 2 testing 2 testing 2 testing 2 testing 2 testing 2 testing 2 testing 2', class: 'positive', icon: 'card'} ];
+  {time: new Date(), title: 'Payment', description: '100', class: 'positive', icon: 'card'} ];
   constructor() { }
 
   ngOnInit() {}
