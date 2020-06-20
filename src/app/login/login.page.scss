@@ -16,6 +16,15 @@
     z-index: 1;
   }
 
+  .error {
+    color: red;
+  }
+//   .passwordIcon{
+//     font-size:2rem !important;
+//     position: relative !important;
+//     top: 22px !important;
+//     margin: 0 auto !important;
+//  }
   // #cloud-layer {
   //   // background-image: url(/assets/img/Cartoon_Clouds_PNG_Clip_Art-3041.png);
   //   background-size: cover;
@@ -29,10 +38,10 @@
   }
 
   ion-item {
-    border-radius: 30px !important;
+    // border-radius: 30px !important;
     padding-left: 10px !important;
     // margin-bottom: 10px;
-    background-color: #f6f6f6;
+    // background-color: #f6f6f6;
     opacity: 0.7;
     font-size: 0.9em;
   }

@@ -65,6 +65,9 @@ export class RegistrationPage implements OnInit {
   loginState: any = 'in';
   formState: any = 'in';
 
+  passwordType = 'password';
+  passwordIcon = 'eye-off';
+
   public registerForm: FormGroup;
 
   public submitAttempt = false;
@@ -86,6 +89,11 @@ export class RegistrationPage implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  hideShowPassword() {
+    this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
+    this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
   }
 
   register() {

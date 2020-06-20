@@ -1,3 +1,4 @@
+import { SharedModule } from './../shared/shared.module';
 import { WalletComponent } from './../wallet/wallet/wallet.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -15,7 +16,8 @@ import { Tab2Page } from './tab2.page';
     FormsModule,
     IonicModule,
     Tab2PageRoutingModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule
   ],
   declarations: [Tab2Page, WalletComponent]
 })

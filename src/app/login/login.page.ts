@@ -60,6 +60,10 @@ import { LoaderService } from '../services/loader.service';
 })
 export class LoginPage implements OnInit {
 
+  passwordType = 'password';
+  passwordIcon = 'eye-off';
+
+
   logoState: any = 'in';
   cloudState: any = 'in';
   loginState: any = 'in';
@@ -86,14 +90,21 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
+  hideShowPassword() {
+    this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
+    this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
+  }
+
   login() {
     this.submitAttempt = true;
+    // this.navCtrl.navigateRoot(`app/tabs/home`);
     this.showLoader();
-    console.log(this.loginForm.value);
+    // console.log(this.loginForm.value);
     const data = {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password,
     };
+    // this.navCtrl.navigateRoot(`app/tabs/home`);
     this.authService.login(data).subscribe(res => {
       console.log(res);
       this.hideLoader();

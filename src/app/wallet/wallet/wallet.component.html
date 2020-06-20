@@ -1,42 +1,84 @@
 <ion-card class="page">
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-      </ion-col>
-      <ion-col size="8" class="ion-align-self-center">
-        <h5>Account Balance: 10000Kshs</h5>
-        <h5 class="balance"></h5>
-        <ion-button type="submit" color="" class="login-button" (click)="withdraw()"  expand="block">Withdraw</ion-button><br>
-      </ion-col>
-      <ion-col>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+<ion-grid >
+  <ion-row>
+    <ion-col col-6 class="ion-align-self-end">
+      <div class="ion-text-end">
+        <h1>Kshs</h1>
+      </div>
+    </ion-col>
+    <ion-col col-6 class="ion-align-self-start">
+      <h1>10000</h1>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-12 class="ion-align-self-center">
+      <div class="ion-text-center">
+        <p>Account Balance</p>
+      </div>
 
+    </ion-col>
+  </ion-row>
+  
+</ion-grid>
 </ion-card>
+<ion-grid>
+<ion-row class="withdraw">
+    <ion-col col-12 class="ion-align-self-center">
+      <ion-button type="submit" color="" class="login-button" (click)="withdraw()" expand="block">Withdraw <mat-icon>keyboard_arrow_right</mat-icon>
+      </ion-button><br>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<ion-grid>
+  <ion-row>
+    <ion-col col-12 class="ion-align-self-start">
+      <div class="ion-text-start">
+        <h6>Payment History</h6>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<div class="wallet">
+  <div class="page-wallet">
+    <ion-card>
+      <ion-list *ngFor="let log of logs;">
+        <ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col col-2 class="ion-align-self-center">
+                <div class="ion-text-center">
+                  <h5>
+                    <mat-icon>{{log.icon}}</mat-icon>
+                  </h5>
+                </div>
 
-<div class="wallet" >
-<div class="page-wallet" *ngFor="let log of logs;">
-  <ion-card>
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <h5>
-            <mat-icon>{{log.icon}}</mat-icon>
-          </h5>
-        </ion-col>
-        <ion-col size="8">
-          <b> {{log.title}} </b><br>
+              </ion-col>
+              <ion-col col-8 class="ion-align-self-center">
+                <div class="ion-text-center">
+                  <h5><b> {{log.title}} </b></h5>
+                </div>
 
-          {{log.time| date:'fullDate'}}
+              </ion-col>
+              <ion-col col-2 class="ion-align-self-center">
+                <div class="ion-text-center">
+                  <h5>{{log.amount}}</h5>
+                </div>
 
-        </ion-col>
-        <ion-col col-2>
-          <h5>{{log.amount}}</h5>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-12 class="ion-align-self-center">
+                <div class="ion-text-center">
+                  <p>{{log.time| date:'fullDate'}}</p>
+                </div>
 
-  </ion-card>
-</div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-list>
+
+
+    </ion-card>
+  </div>
 </div>

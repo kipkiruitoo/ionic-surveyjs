@@ -9,7 +9,7 @@ export class WalletComponent implements OnInit {
   logs = [
     {time: new Date(), title: 'Withdraw', amount: '100', icon: 'remove_circle_outline'},
   // tslint:disable-next-line: max-line-length
-  {time: new Date(), title: 'Payment',  amount: '100', icon: 'add_circle_outline'},
+  {time: new Date(), title: 'Top Up',  amount: '100', icon: 'add_circle_outline'},
   // tslint:disable-next-line: max-line-length
   {time: new Date(), title: 'Withdraw',  amount: '200', icon: 'remove_circle_outline'},
   // tslint:disable-next-line: max-line-length
@@ -17,9 +17,11 @@ export class WalletComponent implements OnInit {
   // tslint:disable-next-line: max-line-length
   {time: new Date(), title: 'Withdraw', amount: '400', icon: 'remove_circle_outline'},
   // tslint:disable-next-line: max-line-length
-  {time: new Date(), title: 'Payment',  amount: '600', icon: 'add_circle_outline'} ];
+  {time: new Date(), title: 'Top Up',  amount: '600', icon: 'add_circle_outline'} ];
   constructor() { }
 
   ngOnInit() {}
+
+  withdraw() {}
 
 }

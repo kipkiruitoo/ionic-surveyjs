@@ -1,3 +1,4 @@
+import { EventsService } from './services/events.service';
 import { LoaderService } from './services/loader.service';
 import { EnvService } from './services/env.service';
 import { DataService } from './services/data.service';
@@ -24,10 +25,11 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
 
 import { TokenInterceptor } from './interceptors/interceptor/token.interceptor';
 import { AuthGuard } from './guards/auth.guard';
+import { SettingsComponent } from './notifications/settings/settings.component';
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, SettingsComponent],
+  entryComponents: [SettingsComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -53,7 +55,7 @@ import { AuthGuard } from './guards/auth.guard';
     DataService,
     EnvService,
     LoaderService,
-    
+    EventsService
   ],
   bootstrap: [AppComponent],
 })
