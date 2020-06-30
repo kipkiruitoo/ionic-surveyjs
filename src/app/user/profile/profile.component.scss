@@ -7,7 +7,7 @@
 //     height:100%;
 //     background-color: #FAB83F!important;
 //   }
-  
+
 //   .example-header-image {
 //     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
 //     background-size: cover;
@@ -15,31 +15,63 @@
 .page {
   // background-color: #FAB83F!important;
   margin-bottom: 1px;
-  
+
 }
+
+
 .icon {
-  color: #FAB83F!important;
+  color: #FAB83F !important;
 }
+
 .header {
   font-family: 'Poppins', sans-serif;
 }
+
+.profilepic {
+  position: relative;
+}
+.hideInput{
+  position: absolute;
+  bottom: -100000000px;
+}
+.myOverlay{
+  position: absolute;
+  // width: auto;
+  // height: auto;
+  margin-bottom: auto;
+  z-index: 99;
+  bottom: 0px;
+  opacity: 0.7;
+  // background: #FAB83F;
+  color: #fff;
+  padding: 0px 0px;
+
+  .overlayname {
+    font-size: 1.3em;
+    font-weight: 700;
+    opacity: 1;
+  }
+}
+
 .email {
   font-size: 1.3em;
   font-weight: 300;
 }
-  .logo-img {
-    border-radius: 50%;
-  }
-  .buttons { 
-    font-size: 15px;
-  }
 
-  .icons {
-    background-color: #fff;
-    border: 1px solid #7f8c8d;
-    color: #7f8c8d;
-    margin: 0;
-    font-size: 0.9em;
+.logo-img {
+  border-radius: 50%;
+}
+
+.buttons {
+  font-size: 15px;
+}
+
+.icons {
+  // background-color: #fff;
+  border: 1px solid #7f8c8d;
+  color: #7f8c8d;
+  margin: 0;
+  font-size: 0.9em;
 }
 
 .acc {
@@ -56,25 +88,25 @@
 }
 
 .name {
-    margin: 0;
-    font-weight: 700;
+  margin: 0;
+  font-weight: 700;
 }
 
 .handle {
-    margin: 0;
+  margin: 0;
 }
 
 .status {
-    white-space: normal;
-    color: #000;
-    margin-top: 5px;
+  white-space: normal;
+  color: #000;
+  margin-top: 5px;
 }
 
 .item {
-    align-items: baseline;
+  align-items: baseline;
 }
 
 .button-container {
-    align-self: flex-end;
-    text-align: right;
+  align-self: flex-end;
+  text-align: right;
 }

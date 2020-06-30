@@ -102,4 +102,16 @@ export class AuthService {
     );
   }
 
+  updateUser(data) {
+    return this.http.post(this.env.API_URL + 'auth/updateuser', data);
+  }
+
+  uploadImage(img) {
+    return this.http.post(this.env.API_URL + 'auth/updateavatar', img);
+  }
+
+  // uploadImage(img) {
+  //   return this.http.post(this.env.API_URL + 'auth/updateavatar', img);
+  // }
+
 }

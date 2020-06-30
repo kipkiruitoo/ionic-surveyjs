@@ -27,6 +27,11 @@ import { TokenInterceptor } from './interceptors/interceptor/token.interceptor';
 import { AuthGuard } from './guards/auth.guard';
 import { SettingsComponent } from './notifications/settings/settings.component';
 
+import { WebView } from '@ionic-native/ionic-webview/ngx';
+import { File, FileEntry } from '@ionic-native/file/ngx';
+import { Camera, CameraOptions, PictureSourceType } from '@ionic-native/camera/ngx';
+import { FilePath } from '@ionic-native/file-path/ngx';
+
 @NgModule({
   declarations: [AppComponent, SettingsComponent],
   entryComponents: [SettingsComponent],
@@ -39,6 +44,8 @@ import { SettingsComponent } from './notifications/settings/settings.component';
     // NativeStorage
   ],
   providers: [
+    File,
+    Camera,
     StatusBar,
     AndroidPermissions,
     SplashScreen,
@@ -55,7 +62,10 @@ import { SettingsComponent } from './notifications/settings/settings.component';
     DataService,
     EnvService,
     LoaderService,
-    EventsService
+    EventsService,
+    WebView,
+    
+    FilePath
   ],
   bootstrap: [AppComponent],
 })

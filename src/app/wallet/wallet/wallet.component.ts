@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { WalletService } from '../../services/wallet.service';
+import { throwMatDialogContentAlreadyAttachedError } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-wallet',
@@ -6,21 +8,42 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./wallet.component.scss'],
 })
 export class WalletComponent implements OnInit {
-  logs = [
-    {time: new Date(), title: 'Withdraw', amount: '100', icon: 'remove_circle_outline'},
-  // tslint:disable-next-line: max-line-length
-  {time: new Date(), title: 'Top Up',  amount: '100', icon: 'add_circle_outline'},
-  // tslint:disable-next-line: max-line-length
-  {time: new Date(), title: 'Withdraw',  amount: '200', icon: 'remove_circle_outline'},
-  // tslint:disable-next-line: max-line-length
-  {time: new Date(), title: 'Withdraw',  amount: '300', icon: 'remove_circle_outline'},
-  // tslint:disable-next-line: max-line-length
-  {time: new Date(), title: 'Withdraw', amount: '400', icon: 'remove_circle_outline'},
-  // tslint:disable-next-line: max-line-length
-  {time: new Date(), title: 'Top Up',  amount: '600', icon: 'add_circle_outline'} ];
-  constructor() { }
+
+  balance: any;
+  transactions: any;
+
+  constructor(
+    private wallet: WalletService
+    ) {
+      this.getData();
+    }
 
   ngOnInit() {}
+
+  getData() {
+    this.wallet.balance().subscribe(res => {
+      this.balance = res['balance'];
+    }, error => {
+      throw error;
+      console.error(error);
+    });
+
+    this.wallet.transactions().subscribe(resp => {
+      console.log(resp);
+      this.transactions = resp['transactions'];
+      this.transactions.forEach(element => {
+        if (element.type === 'withdraw') {
+          element.icon = 'remove_circle_outline';
+        } else if (element.type === 'deposit') {
+          element.icon = 'add_circle_outline';
+        }
+      });
+      this.transactions.reverse();
+    }, error => {
+      throw error;
+      console.error(error);
+    });
+  }
 
   withdraw() {}
 
