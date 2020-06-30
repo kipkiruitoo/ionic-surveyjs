@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { NavController } from '@ionic/angular';
+import { AuthService } from '../../services/auth.service';
+import { AlertService } from '../../services/alert.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -13,28 +15,42 @@ export class EditProfileComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private auth: AuthService,
+    private alert: AlertService
   ) {
     this.editProfile = this.formBuilder.group({
-      email: ['', Validators.required],
-      fullname: ['', Validators.required],
-      number: ['', Validators.required],
-      password: ['', Validators.required]
+      email: [''],
+      username: [''],
+      phone: [''],
+      password: ['']
   });
     this.getData();
   }
 
   ngOnInit() {}
 
-  submitForm() {
+  update() {
     console.log(this.editProfile.value);
-    this.navCtrl.navigateBack('/profile');
+    const data = this.editProfile.value;
+    this.auth.updateUser(data).subscribe(resp => {
+      this.alert.presentToast('Profile Updated');
+      // this.navCtrl.navigateBack('/profile');
+    }, error => {
+      throw error;
+      console.log(error);
+    });
   }
 
   getData() {
-    const fullname = this.editProfile.patchValue({fullname: 'John Doe'});
-    const $number = this.editProfile.patchValue({number: +254754789098});
-    const email = this.editProfile.patchValue({email: 'john.doe@example.com'});
+    this.auth.getUser().subscribe(res => {
+      this.editProfile.patchValue({username: res['name']});
+      this.editProfile.patchValue({email: res['email']});
+      this.editProfile.patchValue({phone: res['phonenumber']});
+    }, error => {
+      throw error;
+      console.log(error);
+    });
   }
 
 }

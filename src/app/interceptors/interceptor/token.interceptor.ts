@@ -32,13 +32,18 @@ export class TokenInterceptor implements HttpInterceptor {
 
     if (this.token$) {
       req = req.clone({ headers: req.headers.set('Authorization', 'Bearer ' + this.token$) });
+      if (req.url.indexOf('/updateavatar') !== -1 && req.method === 'POST') {
+        // console.log(req)
+        // console.log(typeof req.url)
+        return next.handle(req);
+      }
     }
 
     if (!req.headers.has('Content-Type')) {
       req = req.clone({ headers: req.headers.set('Content-Type', 'application/json') });
-  }
+    }
     req = req.clone({ headers: req.headers.set('Accept', 'application/json') });
     return next.handle(req);
 
-}
+  }
 }

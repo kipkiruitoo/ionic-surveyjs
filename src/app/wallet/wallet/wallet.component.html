@@ -7,7 +7,7 @@
       </div>
     </ion-col>
     <ion-col col-6 class="ion-align-self-start">
-      <h1>10000</h1>
+      <h1>{{balance}}</h1>
     </ion-col>
   </ion-row>
   <ion-row>
@@ -41,7 +41,7 @@
 <div class="wallet">
   <div class="page-wallet">
     <ion-card>
-      <ion-list *ngFor="let log of logs;">
+      <ion-list *ngFor="let log of transactions;">
         <ion-item>
           <ion-grid>
             <ion-row>
@@ -55,7 +55,7 @@
               </ion-col>
               <ion-col col-8 class="ion-align-self-center">
                 <div class="ion-text-center">
-                  <h5><b> {{log.title}} </b></h5>
+                  <h5><b> {{log.type}} </b></h5>
                 </div>
 
               </ion-col>
@@ -69,7 +69,7 @@
             <ion-row>
               <ion-col col-12 class="ion-align-self-center">
                 <div class="ion-text-center">
-                  <p>{{log.time| date:'fullDate'}}</p>
+                  <p>{{log.created_at| date:'medium':'UTC +3'}}</p>
                 </div>
 
               </ion-col>

@@ -14,48 +14,33 @@
     </ion-card-header>
 
     <ion-card-content>
-      <form [formGroup]="editProfile" (ngSubmit)="submitForm()" class="fullwidth">
-        
-            <mat-form-field class="fullwidth"> 
-              <input matInput type="text" placeholder="Enter your Fullname" formControlName="fullname" required>
+      <ion-list inset>
 
-            </mat-form-field>
-          
+        <form [formGroup]="editProfile">
+          <ion-item lines="inset">
+            <ion-icon slot="start" name="mail-outline"></ion-icon>
+            <ion-input type="email" formControlName="email" placeholder="Edit email" ></ion-input>
+          </ion-item>
 
-          
-            <mat-form-field class="fullwidth">
-              <input matInput type="email" placeholder="Enter your Email" formControlName="email" required>
+          <ion-item lines="inset">
+            <ion-icon slot="start" name="phone-portrait"></ion-icon>        
+            <ion-input formControlName="phone"  placeholder="Edit phone number" ></ion-input>
+          </ion-item>
 
-            </mat-form-field>
+          <ion-item lines="inset">
+            <ion-icon slot="start" name="person"></ion-icon>        
+            <ion-input formControlName="username"  placeholder="Edit username" ></ion-input>
+          </ion-item>
 
-          
+        </form>
+        <ion-row>
+          <ion-col>
+            <ion-button type="submit" color="warning" class="login-button" (click)="update()" expand="block">Update
+            </ion-button>
+          </ion-col>
+        </ion-row>
 
-          
-            <mat-form-field class="fullwidth">
-              <input matInput type="password" placeholder="Enter your Password" formControlName="password" required>
-
-            </mat-form-field>
-
-          
-
-          
-            <mat-form-field class="fullwidth">
-              <input matInput type="number" placeholder="Enter your Phone Number" formControlName="number" required>
-
-            </mat-form-field>
-
-          
-
-        
-
-        <div class="d-flex justify-content-center">
-          <button mat-flat-button color="primary" type="submit" [disabled]="!editProfile.valid">
-            <mat-icon>edit</mat-icon>
-            Submit
-          </button>
-
-        </div>
-      </form>
+      </ion-list>
     </ion-card-content>
   </ion-card>
 </ion-content>

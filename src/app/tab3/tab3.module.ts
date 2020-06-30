@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { MaterialModule } from '../material.module';
 import { SharedModule } from './../shared/shared.module';
 import { Tab3PageRoutingModule } from './tab3-routing.module';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
 
 import { Tab3Page } from './tab3.page';
 
@@ -19,7 +20,8 @@ import { Tab3Page } from './tab3.page';
     Tab3PageRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    MaterialFileInputModule
   ],
   declarations: [Tab3Page, ProfileComponent, EditProfileComponent],
   
