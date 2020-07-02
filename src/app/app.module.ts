@@ -24,26 +24,42 @@ import { NativeStorage } from '@ionic-native/native-storage';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import { NgOtpInputModule } from 'ng-otp-input';
 
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { TokenInterceptor } from './interceptors/interceptor/token.interceptor';
 import { AuthGuard } from './guards/auth.guard';
 import { SettingsComponent } from './notifications/settings/settings.component';
 import { ConfirmCodeComponent } from './registration/confirm-code/confirm-code.component';
-
+import { CompleteSurveyComponent } from './notifications/complete-survey/complete-survey.component';
+import { WithdrawComponent } from './notifications/withdraw/withdraw.component';
+import { fancyAnimation } from './animations';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 // import { File, FileEntry } from '@ionic-native/file/ngx';
 // import { Camera, CameraOptions, PictureSourceType } from '@ionic-native/camera/ngx';
 // import { FilePath } from '@ionic-native/file-path/ngx';
 
 @NgModule({
-  declarations: [AppComponent, SettingsComponent, ConfirmCodeComponent],
-  entryComponents: [SettingsComponent, ConfirmCodeComponent],
+  declarations: [
+    AppComponent,
+    SettingsComponent,
+    ConfirmCodeComponent,
+    CompleteSurveyComponent,
+    WithdrawComponent],
+  entryComponents: [
+    SettingsComponent,
+    ConfirmCodeComponent,
+    CompleteSurveyComponent,
+    WithdrawComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(),
+    IonicModule.forRoot({navAnimation: fancyAnimation}),
     AppRoutingModule,
     BrowserAnimationsModule,
-    NgOtpInputModule
+    NgOtpInputModule,
+    FormsModule,
+    ReactiveFormsModule
     // NativeStorage
   ],
   providers: [

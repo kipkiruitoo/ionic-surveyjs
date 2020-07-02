@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService, Message } from '../services/data.service';
 import { throwError } from 'rxjs';
+import { ModalController } from '@ionic/angular';
+import { CompleteSurveyComponent } from '../notifications/complete-survey/complete-survey.component';
+import { modalEnterAnimation, modalLeaveAnimation } from '../animations/index';
 
 // import { SurveyComponent } from "../survey/survey.component"
 @Component({
@@ -17,7 +20,8 @@ export class ViewMessagePage implements OnInit {
   constructor(
     private data: DataService,
     private activatedRoute: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthService,
+    private modalCtrl: ModalController
   ) {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     this.survey = this.showSurvey(id);
@@ -40,7 +44,7 @@ export class ViewMessagePage implements OnInit {
         console.log(result);
         this.survey = result.data;
         this.json = result.data.json;
-        
+        // this.json['completedHtml'] = '<p><h4>Thank you for asking and answering.</p></h4>';
       },
       (error) => {
         console.log(error);
@@ -59,6 +63,7 @@ export class ViewMessagePage implements OnInit {
       };
       console.log(data);
       this.data.submitSurvey(this.survey.id, data).subscribe( resp => {
+        this.showModal();
         console.log(resp);
       }, error => {
         console.error(error);
@@ -68,6 +73,15 @@ export class ViewMessagePage implements OnInit {
       console.error(error);
       throwError(error);
     });
-    
+  }
+
+  async showModal() {
+    const modal = await this.modalCtrl.create({
+      component: CompleteSurveyComponent,
+      enterAnimation: modalEnterAnimation,
+      leaveAnimation: modalLeaveAnimation
+    });
+    await modal.present();
+
   }
 }

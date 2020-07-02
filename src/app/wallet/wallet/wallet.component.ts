@@ -3,7 +3,9 @@ import { WalletService } from '../../services/wallet.service';
 import { throwMatDialogContentAlreadyAttachedError } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { NavigationEnd, Router } from '@angular/router';
-
+import { ModalController } from '@ionic/angular';
+import { WithdrawComponent } from '../../notifications/withdraw/withdraw.component';
+import { modalEnterAnimation, modalLeaveAnimation } from '../../animations/index';
 export interface OnEnter {
   onEnter(): Promise<void>;
 }
@@ -23,7 +25,8 @@ export class WalletComponent implements OnInit, OnEnter, OnDestroy {
 
   constructor(
     private wallet: WalletService,
-    private router: Router
+    private router: Router,
+    private modalCtrl: ModalController
     ) {}
 
   public async ngOnInit(): Promise<void> {
@@ -72,6 +75,21 @@ export class WalletComponent implements OnInit, OnEnter, OnDestroy {
     });
   }
 
-  withdraw() {}
+  withdraw() {
+    this.showModal();
+  }
+
+  async showModal() {
+    const modal = await this.modalCtrl.create({
+      component: WithdrawComponent,
+      enterAnimation: modalEnterAnimation,
+      leaveAnimation: modalLeaveAnimation,
+      componentProps: {
+        balance: this.balance
+      }
+
+    });
+    await modal.present();
+  }
 
 }

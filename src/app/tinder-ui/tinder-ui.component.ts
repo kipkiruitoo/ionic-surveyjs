@@ -128,7 +128,7 @@ export class TinderUiComponent implements OnInit {
     this.crossVisible = cross;
     this.heartVisible = heart;
     if (this.heartVisible) {
-      this.showLoader();
+      // this.showLoader();
       setTimeout(() => {
         this.hideLoader();
         this.navigate(this.cards[0].id);
