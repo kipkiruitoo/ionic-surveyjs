@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-
+import { BehaviorSubject, Subject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+
+import { CountryCodes } from '../registration/country_codes';
 
 export interface Message {
   fromName: string;
@@ -17,7 +19,14 @@ export class DataService {
   public messages: Message[] = [
   ];
 
+  public countries: Subject < any > = new BehaviorSubject<Array<CountryCodes>>(null);
+  private countriesUrl = 'assets/countrycodes/country.json';
+
   constructor(private http: HttpClient) {}
+
+  public getContries(): Observable<any> {
+    return this.http.get(this.countriesUrl);
+  }
 
   public getMessages(): Message[] {
     return this.messages;

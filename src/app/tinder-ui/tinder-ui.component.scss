@@ -87,6 +87,24 @@
     }
   }
 
+  .myswiper{
+    width: 100%;
+    height: auto;
+    position: absolute;
+    z-index: 99;
+    bottom: 20px;
+    opacity: 0.7;
+    // background: grey;
+    // color: #fff;
+    padding: 0px 0px;
+
+    .swiper {
+      font-size: 1.3em;
+      font-weight: 700;
+      opacity: 1;
+    }
+  }
+
   .badge {
     // background: #000;
     // color: #fff;
@@ -102,23 +120,111 @@
     position: absolute;
     flex: 0 0 100px;
     text-align: center;
-    bottom: 20px;
+    // bottom: 20px;
     left: 0;
     right: 0;
   }
-  
-  .tinder--buttons button {
-    border-radius: 50%;
-    line-height: 50px;
-    width: 50px;
-    height: 50px;
-    border: 0;
-    background: #FFFFFF;
-    display: inline-block;
-    padding-top: 10px;
-    margin: 0 12px;
+
+  $width: 50px;
+
+.swipe-hint{
+  margin: 50px;
+  background: #222;
+	&.swipe-horizontal{
+		position: relative;
+		width: 150px;
+		i{
+			position: absolute;
+			display: inline-block;
+			color: #FFFFFF;
+			border-radius: 100%;
+			font-family: FontAwesome;
+			animation: hint-finger ease-in 2s;
+			animation-iteration-count: infinite;
+			z-index: 100;
+			font-size: 30px;
+			
+		}
+		&:before{
+				position: absolute;
+				content: ' ';
+				// background: linear-gradient(to right, rgba(30,87,153,1) 0%,rgba(44,102,165,0.5) 15%,rgba(124,184,231,0) 99%,rgba(125,185,232,0) 100%);;
+				right: 8px;
+				top: 0;
+				width: 0;
+				height: 20px;
+				animation: hint-dot ease-in 2s;
+				animation-iteration-count: infinite;
+			}
+	}
+}
+
+@keyframes hint-finger{
+	0% {
+		right: 0;
+		transform: scale(1);
+	}
+	20% {
+		right: 0;
+		transform: scale(.7);
+	}
+	50% {
+		right: $width;
+		transform: scale(.7);
+	}
+	60% {
+		transform: scale(1);
+	}
+	70% {
+		right: $width;
+	}
+	100% {
+		right: 0;
+		transform: scale(1);
+	}
+}
+
+@keyframes hint-dot{
+	20% {
+		opacity: 0;
+		width: 0;
+	}
+	50% {
+		opacity: .7;
+		width: $width;
+	}
+	60% {
+		opacity: 0;
+		width: $width;
+	}
+	100% {
+		opacity: 0;
+		width: 0;
+	}
+}
+
+#hideMe {
+  -moz-animation: cssAnimation 0s ease-in 5s forwards;
+  /* Firefox */
+  -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+  /* Safari and Chrome */
+  -o-animation: cssAnimation 0s ease-in 5s forwards;
+  /* Opera */
+  animation: cssAnimation 0s ease-in 5s forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+@keyframes cssAnimation {
+  to {
+      width:0;
+      height:0;
+      overflow:hidden;
   }
-  
-  .tinder--buttons button:focus {
-    outline: 0;
+}
+@-webkit-keyframes cssAnimation {
+  to {
+      width:0;
+      height:0;
+      visibility:hidden;
   }
+}

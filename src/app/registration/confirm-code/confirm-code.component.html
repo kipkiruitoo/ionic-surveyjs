@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Confirm</ion-title>
+    <ion-buttons fill="outline" slot="end">
+      <ion-button (click)="dismiss()">
+        Cancel
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-row>
+      <ion-col padding="true">
+        <img class="welcome-img" src="assets/img/Design.png" />
+        <div class="ion-text-center">
+          <h3>Thank You for Registering</h3>
+        </div>
+        <div class="ion-text-center">
+          <h5>Please enter the 5-digit verification code we sent via SMS</h5>
+        </div>
+        
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col padding="true">
+        <div class="ion-text-center">
+          <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" *ngIf="showOtpComponent" [config]="config">
+          </ng-otp-input>
+        </div>
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col padding="true">
+        <ion-buttons fill="outline" class="ion-text-center">
+          <div class="ion-text-center">
+            <ion-button (click)="resend()">
+              Didn't receive the code? Resend
+            </ion-button>
+          </div>     
+        </ion-buttons>
+       
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>
+

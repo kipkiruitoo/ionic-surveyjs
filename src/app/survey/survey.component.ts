@@ -20,7 +20,7 @@ widgets.prettycheckbox(Survey);
 Survey.JsonObject.metaData.addProperty('questionbase', 'popupdescription:text');
 Survey.JsonObject.metaData.addProperty('page', 'popupdescription:text');
 
-Survey.StylesManager.applyTheme('bootstrap');
+Survey.StylesManager.applyTheme('modern');
 
 @Component({
   selector: 'survey',
