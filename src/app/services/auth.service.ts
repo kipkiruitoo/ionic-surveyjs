@@ -110,8 +110,14 @@ export class AuthService {
     return this.http.post(this.env.API_URL + 'auth/updateavatar', img);
   }
 
-  // uploadImage(img) {
-  //   return this.http.post(this.env.API_URL + 'auth/updateavatar', img);
-  // }
+
+  confirmSMS(otp) {
+    return this.http.post(this.env.API_URL + 'auth/mobile/verify', otp);
+  }
+
+  resendSMS(phone) {
+    return this.http.post(this.env.API_URL + 'auth/mobile/verify', phone);
+  }
+
 
 }

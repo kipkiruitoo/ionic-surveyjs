@@ -120,10 +120,6 @@ export class LoginPage implements OnInit {
 
   showLoader() {
     this.ionLoader.showLoader();
-
-    // setTimeout(() => {
-    //   this.hideLoader();
-    // }, 2000);
   }
 
   hideLoader() {

@@ -153,29 +153,34 @@ export class RegistrationPage implements OnInit {
   register() {
     this.submitAttempt = true;
     // console.log(this.countries);
-    // this.countries.forEach(element => {
-    //   if (element.name === this.registerForm.value.country) {
-    //     this.phoneNumber = element.dial_code + this.registerForm.value.phone;
-    //     const data = {
-    //       name: this.registerForm.value.name,
-    //       email: this.registerForm.value.email,
-    //       phone: this.phoneNumber,
-    //       country: this.registerForm.value.country,
-    //       password: this.registerForm.value.password,
-    //       confirm_password: this.registerForm.value.confirm_password,
-    //     };
-    //     this.authService.register(data).subscribe(res => {
-    //       this.alert.presentToast(res['message']);
-    //       this.router.navigate(['/login']);
-    //     }, error => {
-    //       console.error(error);
-    //       this.alert.presentToast('Sign Up failed!');
-    //       throw error;
-    //     });
-    //   }
-    // });
-    this.openModal();
-
+    this.countries.forEach(element => {
+      if (element.name === this.registerForm.value.country) {
+        this.phoneNumber = element.dial_code + this.registerForm.value.phone;
+        const data = {
+          name: this.registerForm.value.name,
+          email: this.registerForm.value.email,
+          phone: this.phoneNumber,
+          country: this.registerForm.value.country,
+          password: this.registerForm.value.password,
+          confirm_password: this.registerForm.value.confirm_password,
+        };
+        const logindata = {
+          email: this.registerForm.value.email,
+          password: this.registerForm.value.password
+        };
+        this.authService.register(data).subscribe(res => {
+          this.authService.login(logindata).subscribe(resp => {
+            this.alert.presentToast(res['message']);
+            this.openModal();
+          });
+          // this.router.navigate(['/login']);
+        }, error => {
+          console.error(error);
+          this.alert.presentToast('Sign Up failed!');
+          throw error;
+        });
+      }
+    });
   }
 
   async openModal() {
