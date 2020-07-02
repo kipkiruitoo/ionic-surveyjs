@@ -27,6 +27,7 @@ export class AuthService {
         set('token', token)
         .then(
           () => {
+            set('isLoggedIn', true)
             console.log('Token Stored');
           },
           error => console.error('Error storing item', error)
@@ -76,11 +77,11 @@ export class AuthService {
     );
   }
 
-  getToken() {
-    return get('token').then(
+  async getToken() {
+    return await get('token').then(
       data => {
         this.token = data;
-        if (this.token != null) {
+        if (this.token !== null) {
           this.isLoggedIn = true;
         } else {
           this.isLoggedIn = false;
