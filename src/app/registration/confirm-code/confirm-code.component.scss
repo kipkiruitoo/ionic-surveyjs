@@ -1,0 +1,28 @@
+img {
+    border: 4px solid #FAB83E;
+    border-radius: 5px;
+    .welcome-img {
+        width: 180px;
+        height: 45px;
+        
+    }
+}
+h3 {
+    font-weight: bolder;
+}
+.login-button {
+    width: 100%;
+    border-radius: 30px;
+    font-size: 0.9em;
+    border: 1px solid #fff;
+    // color: #FAB83F;
+    background-color: #39acdc;
+  }
+
+//  <ion-buttons fill="outline">
+// <div class="ion-text-center">
+// <ion-button (click)="changeNumber()">
+//   Change phone number
+// </ion-button>
+// </div>         
+// </ion-buttons>

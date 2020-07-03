@@ -1,6 +1,7 @@
 // tslint:disable-next-line: max-line-length
 import { Component, Input, ViewChildren, QueryList, EventEmitter, Output, ElementRef, Renderer2, AfterViewInit, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoaderService } from '../services/loader.service';
 
 @Component({
   selector: 'app-tinder-ui',
@@ -31,7 +32,10 @@ export class TinderUiComponent implements OnInit {
   originalData: any;
   // url = https://picsum.photos/300;
 
-  constructor(private renderer: Renderer2, private router: Router) { // we imported Renderer to be able to alter style's of elements safely
+  constructor(
+    private renderer: Renderer2,
+    private router: Router,
+    private loader: LoaderService) { // we imported Renderer to be able to alter style's of elements safely
 
   }
 
@@ -124,7 +128,9 @@ export class TinderUiComponent implements OnInit {
     this.crossVisible = cross;
     this.heartVisible = heart;
     if (this.heartVisible) {
+      // this.showLoader();
       setTimeout(() => {
+        this.hideLoader();
         this.navigate(this.cards[0].id);
       }, 2000);
 
@@ -154,6 +160,18 @@ export class TinderUiComponent implements OnInit {
 
   navigate(id) {
     this.router.navigate(['/survey/' + id]);
+  }
+
+  showLoader() {
+    this.loader.showLoader();
+
+    // setTimeout(() => {
+    //   this.hideLoader();
+    // }, 2000);
+  }
+
+  hideLoader() {
+    this.loader.hideLoader();
   }
 
 

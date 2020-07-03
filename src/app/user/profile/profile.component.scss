@@ -53,6 +53,28 @@
   }
 }
 
+.img{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  // background-color: blue;
+  /* commented for demo
+  float: left;
+  margin-left: 125px;
+  margin-top: 20px;
+  */
+  
+  /*for demo*/
+  display:flex;
+  justify-content: center;
+  // vertical-align:middle;
+}
+
+.img img{
+  width:100%;
+}
+
 .email {
   font-size: 1.3em;
   font-weight: 300;

@@ -1,3 +1,9 @@
+<div class="tinder--buttons">
+    <div class=" swipe-hint swipe-horizontal d-flex justify-content-center" id='hideMe'>
+        <i>swipe</i>
+        .           
+    </div>
+</div>
 <div class="tinder" [hidden]="!cards.length">
 
     <div class="tinder--status">
@@ -19,9 +25,9 @@
         </div>
 
     </div>
-
+    
     <div class="tinder--cards" (pan)="handlePan($event)" (panend)="handlePanEnd($event)">
-
+        
         <div #tinderCard class="tinder--card" *ngFor="let card of cards; let i = index" (transitionend)="handleShift()"
             [ngStyle]="{ zIndex: cards.length - i, transform: 'scale(' + (20 - i) / 20 + ') translateY(+' + 20 * i + 'px)' }">
 
@@ -35,14 +41,9 @@
             <div class="myOverlay">
                 <h4 class="overlayname">{{ card.name }}</h4>           
             </div>
+            
 
         </div>
-
-    </div>
-
-    <div class="tinder--buttons">
-
-
 
     </div>
 

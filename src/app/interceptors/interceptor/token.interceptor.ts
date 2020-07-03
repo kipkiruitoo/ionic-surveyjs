@@ -37,6 +37,11 @@ export class TokenInterceptor implements HttpInterceptor {
         // console.log(typeof req.url)
         return next.handle(req);
       }
+      if (req.url.indexOf('/login') !== -1 && req.method === 'POST') {
+        // console.log(req)
+        // console.log(typeof req.url)
+        return next.handle(req);
+      }
     }
 
     if (!req.headers.has('Content-Type')) {

@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Withdraw</ion-title>
+    <ion-buttons fill="outline" slot="end">
+      <ion-button (click)="dismiss()">
+        close
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-row class="header">
+    <ion-col col-12>
+      <div class="ion-text-center">
+        <img class="logo" src="assets/img/icon_01_png.png" />
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-card>
+    <ion-row>
+      <ion-col>
+        <div class="ion-text-center">
+          <h5 class="name">You can withdraw upto {{balance}}</h5>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+          <div class="ion-text-center">
+            <form [formGroup]="withdrawForm">
+              <ion-item lines="inset">
+                <ion-input type="number" formControlName="amount" placeholder="Enter Amount" required></ion-input>
+              </ion-item>
+              <ion-item *ngIf="!withdrawForm.controls.amount.valid  && (withdrawForm.controls.amount.dirty)">
+                <p class="error">Please enter a valid amount.</p>
+              </ion-item>
+            </form>
+            <ion-row class="bottomRow">
+              <ion-col>
+                <ion-button type="submit" color="warning" class="login-button" (click)="withdraw()" expand="block">
+                  Withdraw
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

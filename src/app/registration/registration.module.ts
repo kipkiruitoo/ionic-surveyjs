@@ -6,7 +6,6 @@ import { IonCustomScrollbarModule } from 'ion-custom-scrollbar';
 import { IonicModule } from '@ionic/angular';
 import { SharedModule } from './../shared/shared.module';
 import { RegistrationPageRoutingModule } from './registration-routing.module';
-
 import { RegistrationPage } from './registration.page';
 
 @NgModule({

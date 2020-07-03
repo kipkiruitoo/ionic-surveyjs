@@ -25,10 +25,10 @@ import {
   WalletService
 } from '../../services/wallet.service';
 
-import {
-  Camera,
-  CameraOptions
-} from '@ionic-native/camera/ngx';
+// import {
+//   Camera,
+//   CameraOptions
+// } from '@ionic-native/camera/ngx';
 import {
   ActionSheetController
 } from '@ionic/angular';
@@ -71,7 +71,7 @@ export class ProfileComponent implements OnInit {
     private alert: AlertService,
     public popoverCtrl: PopoverController,
     private wallet: WalletService,
-    private camera: Camera,
+    // private camera: Camera,
     public actionSheetController: ActionSheetController,
     private ionLoader: LoaderService
 
@@ -93,6 +93,8 @@ export class ProfileComponent implements OnInit {
       this.profile.forEach(element => {
         if (element.avatar !== '') {
           element.img = 'https://maoni.club' + element.avatar;
+        } else if (element.avatar === '') {
+          element.img = 'assets/img/icon_01_png.png';
         }
       });
       console.log(this.profile);
@@ -136,8 +138,17 @@ export class ProfileComponent implements OnInit {
       formData.append('avatar', file.data);
       this.authService.uploadImage(formData).subscribe(resp => {
         console.log(resp);
+        this.authService.getUser().subscribe(res => {
+          this.profile[0] = res;
+          this.profile.forEach(element => {
+            if (element.avatar !== '') {
+              element.img = 'https://maoni.club' + element.avatar;
+            }
+          });
+          console.log(this.profile);
+        });
         this.hideLoader();
-        location.reload();
+        // location.reload();
         this.alert.presentToast('Avatar Updated');
       }, error => {
         this.hideLoader();
