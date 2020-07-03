@@ -10,6 +10,7 @@ export interface OnEnter {
   onEnter(): Promise<void>;
 }
 
+
 @Component({
   selector: 'app-wallet',
   templateUrl: './wallet.component.html',

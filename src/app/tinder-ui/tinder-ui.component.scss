@@ -75,7 +75,7 @@
     position: absolute;
     z-index: 99;
     bottom: 0px;
-    opacity: 0.7;
+    opacity: 1;
     background: #FAB83F;
     color: #fff;
     padding: 0px 0px;
@@ -92,7 +92,7 @@
     height: auto;
     position: absolute;
     z-index: 99;
-    bottom: 20px;
+    top: 40px;
     opacity: 0.7;
     // background: grey;
     // color: #fff;
@@ -106,7 +106,7 @@
   }
 
   .badge {
-    // background: #000;
+    background: #FAB83F;
     // color: #fff;
     width: 35px;
     // border: 2px solid black;
@@ -120,7 +120,7 @@
     position: absolute;
     flex: 0 0 100px;
     text-align: center;
-    // bottom: 20px;
+    top: 40%;
     left: 0;
     right: 0;
   }
@@ -133,11 +133,12 @@
 	&.swipe-horizontal{
 		position: relative;
 		width: 150px;
-		i{
+		p{
 			position: absolute;
 			display: inline-block;
-			color: #FFFFFF;
-			border-radius: 100%;
+      color: #FFFFFF;
+      background: #222;
+			border-radius: 30%;
 			font-family: FontAwesome;
 			animation: hint-finger ease-in 2s;
 			animation-iteration-count: infinite;

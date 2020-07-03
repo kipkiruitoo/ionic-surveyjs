@@ -8,11 +8,11 @@ import {
   NavController
 } from '@ionic/angular';
 import {
-  Router
+  Router, NavigationEnd
 } from '@angular/router';
 import {
   Component,
-  OnInit,
+  OnInit, OnDestroy,
   ViewEncapsulation
 } from '@angular/core';
 import {
@@ -24,7 +24,10 @@ import {
 import {
   WalletService
 } from '../../services/wallet.service';
-
+import { Subscription } from 'rxjs';
+export interface OnEnter {
+  onEnter(): Promise<void>;
+}
 // import {
 //   Camera,
 //   CameraOptions
@@ -47,7 +50,7 @@ import { LoaderService } from '../../services/loader.service';
     class: 'account-detail-card'
   }
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit, OnEnter, OnDestroy {
 
   img = 'https://picsum.photos/300';
   profile = [];
@@ -63,6 +66,9 @@ export class ProfileComponent implements OnInit {
     maximumImagesCount: 1,
     quality: 50
   };
+
+  private subscription: Subscription;
+
 
   constructor(
     private router: Router,
@@ -81,7 +87,25 @@ export class ProfileComponent implements OnInit {
     this.getdata();
   }
 
-  ngOnInit() {}
+  public async ngOnInit(): Promise<void> {
+    await this.onEnter();
+
+    this.subscription = this.router.events.subscribe((event) => {
+        if (event instanceof NavigationEnd && event.url === 'app/tabs/wallet') {
+            this.onEnter();
+        }
+    });
+  }
+
+  public async onEnter(): Promise<void> {
+      // do your on enter page stuff here
+      this.getdata();
+  }
+
+  public ngOnDestroy(): void {
+      this.subscription.unsubscribe();
+  }
+
 
   editProfile() {
     this.router.navigateByUrl('app/tabs/profile/edit-profile');
@@ -141,9 +165,9 @@ export class ProfileComponent implements OnInit {
         this.authService.getUser().subscribe(res => {
           this.profile[0] = res;
           this.profile.forEach(element => {
-            if (element.avatar !== '') {
-              element.img = 'https://maoni.club' + element.avatar;
-            }
+
+            element.img = 'https://maoni.club' + element.avatar;
+
           });
           console.log(this.profile);
         });

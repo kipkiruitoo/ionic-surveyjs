@@ -26,6 +26,9 @@ export class HomePage {
 
   loadTinderCards() {
     // this.getSurveys();
+    this.surveys.forEach(element => {
+      element.image = 'https://maoni.club/images/' + element.image;
+    });
     console.log(this.surveys);
     this.cards = this.surveys;
   }

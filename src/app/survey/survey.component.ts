@@ -19,7 +19,16 @@ widgets.prettycheckbox(Survey);
 
 Survey.JsonObject.metaData.addProperty('questionbase', 'popupdescription:text');
 Survey.JsonObject.metaData.addProperty('page', 'popupdescription:text');
+let defaultThemeColors = Survey
+    .StylesManager
+    .ThemeColors['default'];
+defaultThemeColors['$main-color'] = '#7ff07f';
+defaultThemeColors['$main-hover-color'] = '#6fe06f';
+defaultThemeColors['$text-color'] = '#4a4a4a';
+defaultThemeColors['$header-color'] = '#7ff07f';
 
+defaultThemeColors['$header-background-color'] = '#4a4a4a';
+defaultThemeColors['$body-container-background-color'] = '#f8f8f8';
 Survey.StylesManager.applyTheme('modern');
 
 @Component({

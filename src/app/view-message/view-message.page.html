@@ -9,6 +9,6 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" *ngIf="json">
+<ion-content *ngIf="json" #scrollArea scrollEvents="true" appScrollbar margin>
   <survey [json]="json" (submitSurvey)='submitSurvey($event)'></survey>
 </ion-content>
