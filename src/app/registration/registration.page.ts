@@ -29,7 +29,8 @@ import {
 } from '../services/data.service';
 import { ConfirmCodeComponent } from './confirm-code/confirm-code.component';
 import { ModalController } from '@ionic/angular';
-
+import { IonicSelectableComponent } from 'ionic-selectable';
+import { LoaderService } from '../services/loader.service';
 // import { UsernameValidator } from '../validators/username';
 import {
   Router
@@ -103,6 +104,7 @@ export class RegistrationPage implements OnInit {
   loginState: any = 'in';
   formState: any = 'in';
   countries = [];
+  country: any;
 
   phoneNumber: any;
 
@@ -120,7 +122,8 @@ export class RegistrationPage implements OnInit {
     private router: Router,
     private alert: AlertService,
     private data: DataService,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private ionLoader: LoaderService
   ) {
     this.getServiceFields();
     this.registerForm = formBuilder.group({
@@ -150,17 +153,18 @@ export class RegistrationPage implements OnInit {
     this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
   }
 
-  register() {
+  signup() {
     this.submitAttempt = true;
-    // console.log(this.countries);
+    this.showLoader();
+    // console.log(this.country.name);
     this.countries.forEach(element => {
-      if (element.name === this.registerForm.value.country) {
+      if (element.name === this.country.name) {
         this.phoneNumber = element.dial_code + this.registerForm.value.phone;
         const data = {
           name: this.registerForm.value.name,
           email: this.registerForm.value.email,
-          phone: this.phoneNumber,
-          country: this.registerForm.value.country,
+          phonenumber: this.phoneNumber,
+          country: this.country.name,
           password: this.registerForm.value.password,
           confirm_password: this.registerForm.value.confirm_password,
         };
@@ -168,15 +172,24 @@ export class RegistrationPage implements OnInit {
           email: this.registerForm.value.email,
           password: this.registerForm.value.password
         };
+        // console.log(this.countries);
         this.authService.register(data).subscribe(res => {
           this.authService.login(logindata).subscribe(resp => {
+            this.hideLoader();
             this.alert.presentToast(res['message']);
             this.openModal();
+          }, error => {
+            this.hideLoader();
           });
           // this.router.navigate(['/login']);
         }, error => {
-          console.error(error);
-          this.alert.presentToast('Sign Up failed!');
+          const err = error.error;
+          this.hideLoader();
+          // console.log(err[Object.keys(err)[0]]);
+          const fieldValues = err[Object.keys(err)[0]];
+          const keys = Object.keys(err[Object.keys(err)[0]]);
+          const msg = keys.map(k => fieldValues[k]);
+          this.alert.presentToast(msg);
           throw error;
         });
       }
@@ -190,6 +203,20 @@ export class RegistrationPage implements OnInit {
     return await modal.present();
   }
 
+  portChange(event: {
+    component: IonicSelectableComponent,
+    value: any
+  }) {
+    console.log('port:', event.value);
+  }
+
+  showLoader() {
+    this.ionLoader.showLoader();
+  }
+
+  hideLoader() {
+    this.ionLoader.hideLoader();
+  }
 
 
 }

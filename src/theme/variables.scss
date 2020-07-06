@@ -26,15 +26,15 @@
 
   --ion-color-success: #2fdf75;
   --ion-color-success-rgb: 47,223,117;
-  --ion-color-success-contrast: #000000;
-  --ion-color-success-contrast-rgb: 0,0,0;
+  --ion-color-success-contrast: #7B55FF;
+  --ion-color-success-contrast-rgb: 255, 123, 85;
   --ion-color-success-shade: #29c467;
   --ion-color-success-tint: #44e283;
 
   --ion-color-warning: #FAB83F;
   --ion-color-warning-rgb: 255,213,52;
-  --ion-color-warning-contrast: #000000;
-  --ion-color-warning-contrast-rgb: 0,0,0;
+  --ion-color-warning-contrast: #7B55FF;
+  --ion-color-warning-contrast-rgb: 255, 123, 85;
   --ion-color-warning-shade: #e0bb2e;
   --ion-color-warning-tint: #ffd948;
 
@@ -47,20 +47,20 @@
 
   --ion-color-dark: #f4f5f8;
   --ion-color-dark-rgb: 244,245,248;
-  --ion-color-dark-contrast: #000000;
-  --ion-color-dark-contrast-rgb: 0,0,0;
+  --ion-color-dark-contrast: #7B55FF;
+  --ion-color-dark-contrast-rgb: 255, 123, 85;
   --ion-color-dark-shade: #d7d8da;
   --ion-color-dark-tint: #f5f6f9;
 
   --ion-color-medium: #989aa2;
   --ion-color-medium-rgb: 152,154,162;
-  --ion-color-medium-contrast: #000000;
-  --ion-color-medium-contrast-rgb: 0,0,0;
+  --ion-color-medium-contrast: #7B55FF;
+  --ion-color-medium-contrast-rgb: 255, 123, 85;
   --ion-color-medium-shade: #86888f;
   --ion-color-medium-tint: #a2a4ab;
 
-  --ion-color-light: #222428;
-  --ion-color-light-rgb: 34,36,40;
+  --ion-color-light: #7B55FF;
+  --ion-color-light-rgb: 255, 123, 85;
   --ion-color-light-contrast: #ffffff;
   --ion-color-light-contrast-rgb: 255,255,255;
   --ion-color-light-shade: #1e2023;
@@ -112,8 +112,8 @@
  */
 
 .md body {
-  --ion-background-color: #121212;
-  --ion-background-color-rgb: 18,18,18;
+  --ion-background-color: #7B55FF;
+  --ion-background-color-rgb: 255, 123, 85;
 
   --ion-text-color: #ffffff;
   --ion-text-color-rgb: 255,255,255;
@@ -140,7 +140,7 @@
   --ion-color-step-900: #e7e7e7;
   --ion-color-step-950: #f3f3f3;
 
-  --ion-item-background: #1A1B1E;
+  --ion-item-background: #7B55FF;
 }
 
 ion-title.title-large {

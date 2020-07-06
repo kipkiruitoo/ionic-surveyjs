@@ -40,11 +40,10 @@
 
             <ion-item lines="inset">
               <ion-icon slot="start" name="flag-outline"></ion-icon>
-              
-              <ion-select formControlName="country" placeholder="Country" required class="full-width">
-                <ion-select-option *ngFor="let country of countries" value="{{country.name}}">{{country.name}}
-                </ion-select-option>
-              </ion-select>
+                <ionic-selectable [(ngModel)]="country" formControlName="country" itemValueField="name" itemTextField="name"
+                  [items]="countries" [canSearch]="true" (onChange)="portChange($event)">
+                </ionic-selectable>
+
             </ion-item>
             <ion-item *ngIf="!registerForm.controls.country.valid  && (registerForm.controls.country.dirty)">
               <p class="error">Please select a country.</p>
@@ -82,9 +81,10 @@
           </form>
           <ion-row class="bottomRow">
             <ion-col>
-              <ion-button type="submit" color="warning" class="login-button" (click)="register()" expand="block">Sign Up
+              <ion-button type="submit" color="warning" class="login-button" (click)="signup()" expand="block">Sign Up
               </ion-button><br>
-              <a [routerLink]="['/login']" class="small-text center-any-object">Have an Account? Sign In</a>
+              <a [routerLink]="['/login']"  class="small-text center-any-object">Have an Account? Sign
+                In</a>
             </ion-col>
           </ion-row>
 

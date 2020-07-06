@@ -44,6 +44,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 @NgModule({
   imports: [
     CommonModule,
@@ -92,6 +93,7 @@ import {MatTreeModule} from '@angular/material/tree';
     MatTreeModule,
     PortalModule,
     ScrollingModule,
+    NgxMatSelectSearchModule
   ]
 })
 export class MaterialModule {}

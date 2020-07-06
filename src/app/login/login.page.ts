@@ -112,8 +112,13 @@ export class LoginPage implements OnInit {
       this.navCtrl.navigateRoot(`app/tabs/home`);
     }, error => {
       this.hideLoader();
-      console.error(error);
-      this.alert.presentToast('Sign In failed!');
+      // console.error(error);
+      const err = error.error;
+      // console.log(err[Object.keys(err)[0]]);
+      const fieldValues = err[Object.keys(err)[0]];
+      const keys = Object.keys(err[Object.keys(err)[0]]);
+      const msg = keys.map(k => fieldValues[k]);
+      this.alert.presentToast(msg);
       throw error;
     });
   }
