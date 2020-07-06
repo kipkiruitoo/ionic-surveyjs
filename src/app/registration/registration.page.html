@@ -19,11 +19,11 @@
 
     <ion-row class="mid-row">
       <ion-col>
-        <ion-list inset>
+        <ion-list >
 
           <form [formGroup]="registerForm">
             <ion-item lines="inset">
-              <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+              <ion-icon slot="start" name="person-circle-outline" class="white-text"></ion-icon>
               <ion-input type="text" formControlName="name" placeholder="Username" required></ion-input>
             </ion-item>
             <ion-item *ngIf="!registerForm.controls.name.valid  && (registerForm.controls.name.dirty)">
@@ -31,7 +31,7 @@
             </ion-item>
 
             <ion-item lines="inset">
-              <ion-icon slot="start" name="mail-outline"></ion-icon>
+              <ion-icon slot="start" name="mail-outline" class="white-text"></ion-icon>
               <ion-input type="email" formControlName="email" placeholder="Email" required></ion-input>
             </ion-item>
             <ion-item *ngIf="!registerForm.controls.email.valid  && (registerForm.controls.email.dirty)">
@@ -39,8 +39,8 @@
             </ion-item>
 
             <ion-item lines="inset">
-              <ion-icon slot="start" name="flag-outline"></ion-icon>
-                <ionic-selectable [(ngModel)]="country" formControlName="country" itemValueField="name" itemTextField="name"
+              <ion-icon slot="start" name="flag-outline" class="white-text"></ion-icon>
+                <ionic-selectable [(ngModel)]="country" formControlName="country" placeholder="Country" itemValueField="name" itemTextField="name"
                   [items]="countries" [canSearch]="true" (onChange)="portChange($event)">
                 </ionic-selectable>
 
@@ -50,7 +50,7 @@
             </ion-item>
 
             <ion-item lines="inset">
-              <ion-icon slot="start" name="call-outline"></ion-icon>
+              <ion-icon slot="start" name="call-outline" class="white-text"></ion-icon>
               <ion-input type="tel" formControlName="phone" placeholder="Phone Number 720XXXXXX" required></ion-input>
             </ion-item>
             <ion-item *ngIf="!registerForm.controls.phone.valid  && (registerForm.controls.phone.dirty)">
@@ -58,7 +58,7 @@
             </ion-item>
 
             <ion-item lines="inset">
-              <ion-icon slot="start" name="key-outline"></ion-icon>
+              <ion-icon slot="start" name="key-outline" class="white-text"></ion-icon>
               <ion-input type="password" formControlName="password" placeholder="Password" [type]="passwordType"
                 required clearOnEdit="false"></ion-input>
               <ion-icon slot="end" [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
@@ -68,7 +68,7 @@
             </ion-item>
 
             <ion-item lines="inset">
-              <ion-icon slot="start" name="key-outline"></ion-icon>
+              <ion-icon slot="start" name="key-outline" class="white-text"></ion-icon>
               <ion-input type="password" formControlName="confirm_password" placeholder="Confirm Password"
                 [type]="passwordType" required clearOnEdit="false"></ion-input>
               <ion-icon slot="end" [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
