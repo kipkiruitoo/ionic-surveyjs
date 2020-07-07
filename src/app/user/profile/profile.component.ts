@@ -83,9 +83,7 @@ export class ProfileComponent implements OnInit, OnEnter, OnDestroy {
 
     // private file: File
 
-  ) {
-    this.getdata();
-  }
+  ) {}
 
   public async ngOnInit(): Promise<void> {
     await this.onEnter();

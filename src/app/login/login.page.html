@@ -19,29 +19,27 @@
 
     <ion-row>
       <ion-col>
-        <ion-list inset [@bounceInBottom]="formState">
+        <ion-list [@bounceInBottom]="formState">
 
           <form [formGroup]="loginForm">
             <ion-item lines="inset">
-              <ion-icon slot="start" name="mail-outline"></ion-icon>
-              <ion-input type="email" formControlName="email" placeholder="Email"  required></ion-input>
+              <ion-icon slot="start" name="mail-outline" class="white-text"></ion-icon>
+              <ion-input type="email" formControlName="email" class="white-text" placeholder="Email"  required></ion-input>
             </ion-item>
             <ion-item *ngIf="!loginForm.controls.email.valid  && (loginForm.controls.email.dirty || submitAttempt)">
               <p class="error">Please enter a valid email.</p>
             </ion-item>
 
             <ion-item lines="inset">
-              <ion-icon slot="start" name="key-outline"></ion-icon>
+              <ion-icon slot="start" name="key-outline" class="white-text"></ion-icon>
               
-              <ion-input formControlName="password" [type]="passwordType" placeholder="Password" required clearOnEdit="false"></ion-input>
-              <ion-icon slot="end" [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
+              <ion-input formControlName="password" [type]="passwordType" placeholder="Password" required clearOnEdit="false" class="white-text"></ion-input>
+              <ion-icon slot="end" class="white-text" [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
             </ion-item>
             <ion-item
               *ngIf="!loginForm.controls.password.valid  && (loginForm.controls.password.dirty || submitAttempt)">
               <p class="error">Please enter a valid password.</p>
             </ion-item>
-
-
 
           </form>
           <ion-row>

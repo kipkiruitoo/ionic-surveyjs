@@ -121,7 +121,7 @@
     flex: 0 0 100px;
     text-align: center;
     top: 40%;
-    left: 0;
+    left: 35%;
     right: 0;
   }
 
@@ -162,25 +162,25 @@
 
 @keyframes hint-finger{
 	0% {
-		right: 0;
+		left: 0;
 		transform: scale(1);
 	}
 	20% {
-		right: 0;
+		left: 0;
 		transform: scale(.7);
 	}
 	50% {
-		right: $width;
+		left: $width;
 		transform: scale(.7);
 	}
 	60% {
 		transform: scale(1);
 	}
 	70% {
-		right: $width;
+		left: $width;
 	}
 	100% {
-		right: 0;
+		left: 0;
 		transform: scale(1);
 	}
 }
